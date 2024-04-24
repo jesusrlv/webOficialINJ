@@ -41,6 +41,15 @@
 	#cardProgramas{
 		width: 18rem;
 	}
+	#paddingID{
+		padding: 10px; 
+	}
+	.textoA{
+		margin-bottom: 33px;
+	}
+	.textoB{
+		margin-bottom: 48px;
+	}
 	@media only screen and (max-width: 768px) {
   /* For mobile phones: */
 	#imagenResp{
@@ -51,8 +60,17 @@
 		margin-bottom: 5px;
 	}
 	#textoProgramas{
-		font-size: 14px;;
+		font-size: 12px;;
 
+	}
+	#paddingID{
+		padding: 0px; 
+	}
+	.textoA{
+		margin-bottom: 0px;
+	}
+	.textoB{
+		margin-bottom: 0px;
 	}
 }
 </style>
@@ -70,19 +88,11 @@
 						<nav class="vlt-default-menu__navigation">
 							<!--Navigation-->
 							<ul class="sf-menu">
-								<!-- <li data-menuanchor="Home"><a href="#Home">Inicio</a> -->
-								<!-- </li> -->
 								<li data-menuanchor="Conoce"><a href="#inicio"><i class="bi bi-house-fill"></i> Inicio</a>
 								</li>
 								<li data-menuanchor="Cursos"><a href="#programas"><i class="bi bi-card-checklist"></i> Programas</a>
 								</li>
-								<!-- <li data-menuanchor="Calendario"><a href="#pej">PEJ</a>
-								</li>
-								<li data-menuanchor="intentarlo"><a href="#streetsoccer">Streer Soccer</a>
-								</li>
-								<li data-menuanchor="cosasBuenas"><a href="#rescate">Transformando espacios</a>
-								</li> -->
-								<li data-menuanchor="Contacto"><a href="#calendario"><i class="bi bi-calendar2-check-fill"></i> Calendario</a>
+								<li data-menuanchor="Calendario"><a href="#calendario"><i class="bi bi-calendar2-check-fill"></i> Calendario</a>
 								</li>
 								<li data-menuanchor="Contacto"><a href="#contacto"><i class="bi bi-chat-right-dots-fill"></i> Contacto</a>
 								</li>
@@ -93,7 +103,7 @@
 				<div class="vlt-navbar-inner--right">
 					<div class="d-flex align-items-center">
 						<!--Contacts-->
-						<div class="vlt-navbar-contacts"><a href="tel:(492) 125 07 41"><i class="bi bi-telephone-fill"></i> (492) 4915000</a></div>
+						<div class="vlt-navbar-contacts"><a href="tel:(492) 49150000"><i class="bi bi-telephone-fill"></i> (492) 4915000</a></div>
 						<!--Menu Burger--><a class="vlt-menu-burger js-offcanvas-menu-open" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round">
 								<line x1="3" y1="12" x2="21" y2="12" />
 								<line x1="3" y1="6" x2="21" y2="6" />
@@ -107,7 +117,7 @@
 	<div class="vlt-offcanvas-menu">
 		<div class="vlt-offcanvas-menu__header">
 			<!--Locales-->
-			<!-- <div class="vlt-language-switcher"><a class="is-active" href="#">Eng</a><a href="#">Fra</a><a href="#">Ger</a></div> -->
+			
 			<!--Menu Burger--><a class="vlt-menu-burger vlt-menu-burger--opened js-offcanvas-menu-close" href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
 					<defs />
 					<path d="M18 6L6 18M6 6l12 12" /></svg></a>
@@ -115,7 +125,6 @@
 		<nav class="vlt-offcanvas-menu__navigation">
 			<!--Navigation-->
 			<ul class="sf-menu">
-				<!-- <li data-menuanchor="Home"><a href="#Home">Inicio</a> -->
 								<!-- </li> -->
 								<li data-menuanchor="Conoce"><a href="#inicio">Inicio</a>
 								</li>
@@ -210,21 +219,21 @@
 						<div class="vlt-section__ken-burn-background" id="imagenResp" ><img src="img/portafolio/injuventud_02.jpeg" style=" filter: grayscale(0%);" alt=""></div>
 						<div class="container">
 							<div class="row">
-								<div class="col-xl-12 col-sm-12 mx-auto justify-content-center " style="background-color: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 3px;">
+								<div class="col-xl-12 col-sm-12 mx-auto justify-content-center " style="background-color: rgba(0, 0, 0, 0.3); border-radius: 3px;" id="paddingID">
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
 										<h3>Programas </h3>
 										<!-- <div class="vlt-gap-30"></div> -->
 										<p style="color: aliceblue;" id="textoProgramas">Conoce los programas del Instituto de la Juventud.</p>
-											<div class="row mt-2 text-center mx-auto justify-content-center">
+											<div class="row mt-1 text-center mx-auto justify-content-center">
 												<div class="col-sm-4 col-lg-4">
 													<div class="card" style="background-color:rgba(255, 193, 7,0.9);" id="cardProgramas">
 														<div class="card-body">
 														  <h5 class="card-title text-dark" id="textoProgramas">PEJ</h5>
-														  <h6 class="card-subtitle mb-2 text-dark" id="textoProgramas">Premio Estatal de la Juventud<br><br></h6>
+														  <h6 class="card-subtitle text-dark textoA" id="textoProgramas">Premio Estatal de la Juventud</h6>
 														  <hr>
 														  <p class="card-text" id="textoProgramas">Convocatoria para participar en el máximo galardón a los jóvenes del estado.</p>
-														  <a href="#" class="card-link text-primary"><i class="bi bi-arrow-right"></i> Ver programa</a>
+														  <a href="#pej" class="card-link text-primary"><i class="bi bi-arrow-right"></i> Ver programa</a>
 														</div>
 													  </div>
 												</div>
@@ -233,10 +242,10 @@
 														
 														<div class="card-body">
 														  <h5 class="card-title text-dark" id="textoProgramas">SS</h5>
-														  <h6 class="card-subtitle mb-2 text-dark" id="textoProgramas">Street Soccer<br><br><br></h6>
+														  <h6 class="card-subtitle text-dark textoB" id="textoProgramas">Street Soccer</h6>
 														  <hr>
 														  <p class="card-text text-dark" id="textoProgramas">Convocatoria nacional para participar en la justa deportiva con reglas del barrio.</p>
-														  <a href="#" class="card-link text-warning icon-link icon-link-hover"><i class="bi bi-arrow-right"></i> Ver programa</a>
+														  <a href="#streetsoccer" class="card-link text-warning icon-link icon-link-hover"><i class="bi bi-arrow-right"></i> Ver programa</a>
 														</div>
 													  </div>
 												</div>
@@ -244,10 +253,10 @@
 													<div class="card" style="background-color: rgba(255, 0, 136, 0.5);" id="cardProgramas">
 														<div class="card-body">
 														  <h5 class="card-title text-light" id="textoProgramas">TE</h5>
-														  <h6 class="card-subtitle mb-2 text-light" id="textoProgramas">Transformando espacios por las juventudes</h6>
+														  <h6 class="card-subtitle mb-1 text-light" id="textoProgramas">Transformando espacios por las juventudes</h6>
 														  <hr>
 														  <p class="card-text text-light" id="textoProgramas">Convocatoria para rescatar espacios públicos para las y los jóvenes.</p>
-														  <a href="#" class="card-link text-primary icon-link icon-link-hover"><i class="bi bi-arrow-right"></i> Ver programa</a>
+														  <a href="#rescate" class="card-link text-primary icon-link icon-link-hover"><i class="bi bi-arrow-right"></i> Ver programa</a>
 														</div>
 													  </div>
 												</div>
@@ -285,7 +294,7 @@
 												
 											</p>
 										<div class="vlt-gap-40"></div>
-										<a href="cursos_talleres.html" class="btn btn-primary btn-sm mt-3">Ver cursos ...</a>
+										<a href="#" class="btn btn-primary btn-sm mt-3">Ver cursos ...</a>
 										
 									</div>
 								</div>
@@ -313,7 +322,7 @@
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
 										<h3>Street Soccer</h3>
 										<div class="vlt-gap-30"></div>
-										<p style="color: aliceblue;">Descripción de Streer Soccer.<br><a href="calendario.html" class="btn btn-primary btn-sm">Convocatoria</a></p>
+										<p style="color: aliceblue;">Descripción de Streer Soccer.<br><a href="#" class="btn btn-primary btn-sm">Convocatoria</a></p>
 										<div class="vlt-gap-40"></div>
 										
 									</div>
@@ -376,9 +385,9 @@
 										<!-- <div class="vlt-gap-30"></div> -->
 										<p class="h4 text-center">Calendario de eventos 
 											<br>
-											<a href="https://cosasbuenaszacatecas.com/se-parte-de-nuestros-aliados/" target="_blank">
+											<a href="#" target="_blank">
 
-												<img src="img/cosas_buenas.PNG" alt="" width="500"/>
+												<img src="#" alt="" width="500"/>
 											</a>
 										</p>
 										
@@ -440,7 +449,7 @@
 	<!--Footer-->
 	<footer class="vlt-footer vlt-footer--default vlt-footer--fixed">
 		<div class="vlt-footer-copyright">
-			<p>© <a href="" target="_blank">GODEZAC</a> 2024</p>
+			<p>© <a href="#" target="_blank">GODEZAC</a> 2024</p>
 		</div>
 		<!-- <div class="vlt-language-switcher"><a class="is-active" href="#">Eng</a><a href="#">Fra</a><a href="#">Ger</a></div> -->
 	</footer>
