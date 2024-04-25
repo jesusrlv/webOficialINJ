@@ -31,6 +31,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <style>
 	html, body {
@@ -50,6 +51,21 @@
 	.textoB{
 		margin-bottom: 48px;
 	}
+	#titulos{
+		font-family: "Montserrat", sans-serif;
+  		font-optical-sizing: auto;
+  		font-weight: 800;
+  		font-style: normal;
+
+	}
+
+	/* .imagenD {
+    transition: zoom-in 1s ease;
+}
+
+	.zoom-in {
+		transform: scale(1.1);
+	} */
 	@media only screen and (max-width: 768px) {
   /* For mobile phones: */
 	#imagenResp{
@@ -71,6 +87,9 @@
 	}
 	.textoB{
 		margin-bottom: 0px;
+	}
+	#titulos{
+		font-size: 27px;
 	}
 }
 </style>
@@ -177,7 +196,13 @@
 				<div class="vlt-section__vertical-align">
 					<div class="vlt-section__content">
 						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/imagen_fondo_paz_02.png" alt=""></div>
+						<div class="vlt-section__ken-burn-background">
+							<img id="imagen1" src="img/portafolio/imagen_fondo_paz_02.png" class="d-block w-100" alt="...">
+							<img id="imagen2" src="img/portafolio/imagen_fondo_paz_03.jpg" class="d-block w-100" alt="..." style="opacity: 0;">
+							<img id="imagen3" src="img/portafolio/imagen_fondo_paz_04.jpg" class="d-block w-100" alt="..." style="opacity: 0;">
+							<img id="imagen4" src="img/portafolio/imagen_fondo_paz_05.jpg" class="d-block w-100" alt="..." style="opacity: 0;">
+    						
+						</div>
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-5" hidden>
@@ -185,7 +210,7 @@
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
 										<!--Video button-->
-										<div class="vlt-video-button"><a href="https://youtu.be/0t09UBDIDkQ?si=zs8ac5_ePrPSwGB0" data-fancybox data-small-btn="true" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 27">
+										<div class="vlt-video-button"><a href="" data-fancybox data-small-btn="true" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 27">
 													<defs />
 													<path fill="currentColor" d="M23.7471 13.2802L.876191 26.4847.876192.0757026 23.7471 13.2802z" /></svg></a></div>
 									</div>
@@ -281,20 +306,20 @@
 				<div class="vlt-section__vertical-align">
 					<div class="vlt-section__content">
 						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/injuventud_020.jpeg" style=" filter: grayscale(0%);" alt=""></div>
+						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/pej_2024.jpeg" style=" filter: grayscale(0%);" alt=""></div>
 						<div class="container">
 							<div class="row">
 								<div class="col-xl-6" style="background-color: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 3px;">
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
-										<h3>Premio Estatal de la Juventud</h3>
+										<h3 id="titulos">Premio Estatal de la Juventud</h3>
 										<!-- <div class="vlt-gap-30"></div> -->
-											<p style="color: aliceblue;">Descripción Premio Estatal de la Juventud.</p>
+											<p style="color: aliceblue;">Consulta las bases del premio cuando la convocatoria esté abierta.</p>
 											<p style="color: aliceblue;">
 												
 											</p>
 										<div class="vlt-gap-40"></div>
-										<a href="#" class="btn btn-primary btn-sm mt-3">Ver cursos ...</a>
+										<a href="#" class="btn btn-danger btn-sm mt-3">Convocatoria cerrada</a>
 										
 									</div>
 								</div>
@@ -314,15 +339,18 @@
 				<div class="vlt-section__vertical-align">
 					<div class="vlt-section__content">
 						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/injuventud_07.jpeg" style=" filter: grayscale(0%);" alt=""></div>
+						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/street_soccer_2024.jpg" style=" filter: grayscale(0%);" alt=""></div>
 						<div class="container">
 							<div class="row">
 								<div class="col-xl-6" style="background-color: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 3px;">
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
-										<h3>Street Soccer</h3>
+										<h3 id="titulos">Street Soccer</h3>
 										<div class="vlt-gap-30"></div>
-										<p style="color: aliceblue;">Descripción de Streer Soccer.<br><a href="#" class="btn btn-primary btn-sm">Convocatoria</a></p>
+										<p style="color: aliceblue;">El Instituto de la Juventud del Estado de Zacatecas, en coordinación con Fundación Telmex- Telcel, Street Soccer México A.C., y Homeless World Cup, convoca a la población juvenil de entre 12 y 29 años<br>
+											<a href="docs/convocatoria_street_soccer_2024 .pdf" class="btn btn-primary btn-sm mt-2" target="_blank"><i class="bi bi-filetype-pdf"></i> Convocatoria</a>
+											<a href="https://forms.gle/bnrbs9FG1tcg2Bq69" class="btn btn-warning btn-sm mt-2" target="_blank"><i class="bi bi-journal-plus"></i> Registro</a>
+										</p>
 										<div class="vlt-gap-40"></div>
 										
 									</div>
@@ -342,13 +370,13 @@
 				<div class="vlt-section__vertical-align">
 					<div class="vlt-section__content">
 						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/injuventud_023.jpeg" style=" filter: grayscale(0%);" alt=""></div>
+						<div class="vlt-section__ken-burn-background"><img src="img/portafolio/rescate_espacios_24042024.jpg" style=" filter: grayscale(0%);" alt=""></div>
 						<div class="container">
 							<div class="row">
 								<div class="col-xl-6" style="background-color: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 3px;">
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
-										<h3>Transformando espacios por las juventudes</h3>
+										<h3 id="titulos">Transformando espacios por las juventudes</h3>
 										<div class="vlt-gap-30"></div>
 										<p style="color: aliceblue;">Documentos<br>
 										<a href="docs/convocatoria_transformando_espacios_2024.pdf" target="_blank" class="btn btn-primary btn-sm"><i class="bi bi-file-richtext"></i> Convocatoria</a>
@@ -380,9 +408,8 @@
 								<div class="col-xl-12" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 3px;">
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
-										<h3 class="text-center">Calendario</h3>
-										<!-- <h4 class="text-center">Cursos permanentes de Activación física, Mental y Emocional</h4> -->
-										<!-- <div class="vlt-gap-30"></div> -->
+										<h3 class="text-center" id="titulos">Calendario</h3>
+										
 										<p class="h4 text-center">Calendario de eventos 
 											<br>
 											<a href="#" target="_blank">
@@ -416,7 +443,7 @@
 								<div class="col-xl-6" style="background-color: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 3px;">
 									<!--Animated Block-->
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
-										<h3>Contacto</h3>
+										<h3 id="titulos">Contacto</h3>
 										<div class="vlt-gap-30"></div>
 										<p style="color: aliceblue;">Encuéntranos en las redes sociales.</p>
 										<p>
@@ -461,3 +488,49 @@
 </body>
 
 </html>
+
+<script>
+// Lista de imágenes
+var imagenes = [
+    "img/portafolio/imagen_fondo_paz_02.png",
+    "img/portafolio/imagen_fondo_paz_03.jpg",
+    "img/portafolio/imagen_fondo_paz_04.jpg",
+    "img/portafolio/imagen_fondo_paz_05.jpg"
+];
+var index = 0;
+
+// Función para cambiar la imagen cada 16 segundos
+function cambiarImagen() {
+    var img1 = document.getElementById("imagen1");
+    var img2 = document.getElementById("imagen2");
+    var img3 = document.getElementById("imagen3");
+    var img4 = document.getElementById("imagen4");
+
+    // Cambiar la ruta de las imágenes
+    img1.setAttribute("src", imagenes[index % imagenes.length]);
+    img2.setAttribute("src", imagenes[(index + 1) % imagenes.length]);
+    img3.setAttribute("src", imagenes[(index + 2) % imagenes.length]);
+    img4.setAttribute("src", imagenes[(index + 3) % imagenes.length]);
+
+    // Aplicar el efecto de cross-fade
+    setTimeout(function() {
+        // Cambiar la opacidad de la imagen 1 a 0
+        img1.style.transition = "opacity 1s ease";
+        img1.style.opacity = "0";
+
+        // Cambiar la opacidad de la imagen 2 a 1
+        img2.style.transition = "opacity 1s ease";
+        img2.style.opacity = "1";
+    }, 50); // Ajusta esto según la duración de la transición en CSS
+
+    // Incrementar el índice
+    index++;
+
+    // Llamar a la función nuevamente después de 16 segundos para repetir la secuencia
+    setTimeout(cambiarImagen, 16000);
+}
+
+// Llamar a la función inicialmente
+cambiarImagen();
+
+</script>
