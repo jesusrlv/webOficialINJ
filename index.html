@@ -32,67 +32,11 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+
 </head>
-<style>
-	html, body {
-            height: 100%;
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-	#cardProgramas{
-		width: 18rem;
-	}
-	#paddingID{
-		padding: 10px; 
-	}
-	.textoA{
-		margin-bottom: 33px;
-	}
-	.textoB{
-		margin-bottom: 48px;
-	}
-	#titulos{
-		font-family: "Montserrat", sans-serif;
-  		font-optical-sizing: auto;
-  		font-weight: 800;
-  		font-style: normal;
 
-	}
-
-	/* .imagenD {
-    transition: zoom-in 1s ease;
-}
-
-	.zoom-in {
-		transform: scale(1.1);
-	} */
-	@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-	#imagenResp{
-		background-position: right center;
-	}
-	#cardProgramas{
-		width: 18rem;
-		margin-bottom: 5px;
-	}
-	#textoProgramas{
-		font-size: 12px;;
-
-	}
-	#paddingID{
-		padding: 0px; 
-	}
-	.textoA{
-		margin-bottom: 0px;
-	}
-	.textoB{
-		margin-bottom: 0px;
-	}
-	#titulos{
-		font-size: 27px;
-	}
-}
-</style>
 <body class=" animsition">
 	<!--Header-->
 	<header class="vlt-header vlt-header--default">
@@ -194,15 +138,29 @@
 			<!--Section-->
 			<div class="vlt-section pp-scrollable" data-anchor="inicio">
 				<div class="vlt-section__vertical-align">
-					<div class="vlt-section__content">
+					<!-- <div class="vlt-section__content w-100"> -->
 						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background">
-							<img id="imagen1" src="img/portafolio/imagen_fondo_paz_02.png" class="d-block w-100" alt="...">
-							<img id="imagen2" src="img/portafolio/imagen_fondo_paz_03.jpg" class="d-block w-100" alt="..." style="opacity: 0;">
-							<img id="imagen3" src="img/portafolio/imagen_fondo_paz_04.jpg" class="d-block w-100" alt="..." style="opacity: 0;">
-							<img id="imagen4" src="img/portafolio/imagen_fondo_paz_05.jpg" class="d-block w-100" alt="..." style="opacity: 0;">
+						<!-- <div class="vlt-section__ken-burn-background"> -->
+							<div class="imgC">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active backImg" style="background-image: url(img/portafolio/imagen_fondo_paz_02.png);">
+											<!-- Contenido de la primera diapositiva -->
+										</div>
+										<div class="carousel-item backImg" style="background-image: url('img/portafolio/imagen_fondo_paz_03.jpg');">
+											<!-- Contenido de la segunda diapositiva -->
+										</div>
+										<div class="carousel-item backImg" style="background-image: url('img/portafolio/imagen_fondo_paz_04.jpg');">
+											<!-- Contenido de la tercera diapositiva -->
+										</div>
+									</div>
+								</div>
+								
+
+							</div>
     						
-						</div>
+						<!-- </div> -->
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-5" hidden>
@@ -231,7 +189,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					<!-- </div> -->
 				</div>
 			</div>
 
@@ -485,52 +443,14 @@
 	<script src="assets/scripts/vlt-plugins.min.js"></script>
 	<script src="assets/scripts/vlt-helpers.js"></script>
 	<script src="assets/scripts/vlt-controllers.min.js"></script>
+
+	<script src="js/animate.js"></script>
+
+	
 </body>
 
 </html>
 
 <script>
-// Lista de imágenes
-var imagenes = [
-    "img/portafolio/imagen_fondo_paz_02.png",
-    "img/portafolio/imagen_fondo_paz_03.jpg",
-    "img/portafolio/imagen_fondo_paz_04.jpg",
-    "img/portafolio/imagen_fondo_paz_05.jpg"
-];
-var index = 0;
-
-// Función para cambiar la imagen cada 16 segundos
-function cambiarImagen() {
-    var img1 = document.getElementById("imagen1");
-    var img2 = document.getElementById("imagen2");
-    var img3 = document.getElementById("imagen3");
-    var img4 = document.getElementById("imagen4");
-
-    // Cambiar la ruta de las imágenes
-    img1.setAttribute("src", imagenes[index % imagenes.length]);
-    img2.setAttribute("src", imagenes[(index + 1) % imagenes.length]);
-    img3.setAttribute("src", imagenes[(index + 2) % imagenes.length]);
-    img4.setAttribute("src", imagenes[(index + 3) % imagenes.length]);
-
-    // Aplicar el efecto de cross-fade
-    setTimeout(function() {
-        // Cambiar la opacidad de la imagen 1 a 0
-        img1.style.transition = "opacity 1s ease";
-        img1.style.opacity = "0";
-
-        // Cambiar la opacidad de la imagen 2 a 1
-        img2.style.transition = "opacity 1s ease";
-        img2.style.opacity = "1";
-    }, 50); // Ajusta esto según la duración de la transición en CSS
-
-    // Incrementar el índice
-    index++;
-
-    // Llamar a la función nuevamente después de 16 segundos para repetir la secuencia
-    setTimeout(cambiarImagen, 16000);
-}
-
-// Llamar a la función inicialmente
-cambiarImagen();
 
 </script>
