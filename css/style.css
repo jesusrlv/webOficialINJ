@@ -31,35 +31,54 @@ transition: zoom-in 1s ease;
 transform: scale(1.1);
 } */
 @media only screen and (max-width: 768px) {
-/* For mobile phones: */
-#imagenResp{
-background-position: right center;
-}
-#cardProgramas{
-width: 18rem;
-margin-bottom: 5px;
-}
-#textoProgramas{
-font-size: 12px;;
+    /* For mobile phones: */
+    #imagenResp{
+    background-position: right center;
+    }
+    #cardProgramas{
+    width: 18rem;
+    margin-bottom: 5px;
+    }
+    #textoProgramas{
+    font-size: 12px;;
 
-}
-#paddingID{
-padding: 0px; 
-}
-.textoA{
-margin-bottom: 0px;
-}
-.textoB{
-margin-bottom: 0px;
-}
-#titulos{
-font-size: 27px;
-}
+    }
+    #textoProgramas2{
+    display: none;
+
+    }
+    #paddingID{
+    padding: 0px; 
+    }
+    .textoA{
+    margin-bottom: 0px;
+    }
+    .textoB{
+    margin-bottom: 0px;
+    }
+    #titulos{
+    font-size: 27px;
+    }
+    #cardProgramas{
+        opacity: 0.75;
+    }
+    #cardProgramas:hover {
+    
+        /* box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06); */
+        transform: scale(1.03);
+        /* transition: width 0.8s, height 0.8s, transform 0.3s; */
+        
+      }
+      #cardProgramas:active {
+     
+        box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
+        transform: scale(1.03);
+        transition: width 0.8s, height 0.8s, transform 0.3s;
+        
+      }
 }
 
 /* imágenes carusel */
-
-
 
 .imgC {
     /* width: 100%; */
