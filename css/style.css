@@ -19,7 +19,15 @@ margin-bottom: 48px;
 font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
+  font-style:normal;
+
+}
+#subtitulos{
+font-family: "Montserrat", sans-serif;
   font-style: normal;
+  font-weight: 800;
+  font-size: 23px;
+  color: rgb(255, 255, 255);
 
 }
 
@@ -30,6 +38,12 @@ transition: zoom-in 1s ease;
 .zoom-in {
 transform: scale(1.1);
 } */
+.cardInjuventud{
+    background-color: rgba(28, 28, 28, 0.306);
+}
+#eticaDM{
+    color: aliceblue;
+}
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #imagenResp{
