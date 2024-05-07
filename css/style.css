@@ -44,13 +44,14 @@ transform: scale(1.1);
 #eticaDM{
     color: aliceblue;
 }
+/* celulares */
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #imagenResp{
     background-position: right center;
     }
     #cardProgramas{
-    width: 18rem;
+    width: 100%;
     margin-bottom: 5px;
     }
     #textoProgramas{
@@ -123,4 +124,15 @@ transform: scale(1.1);
 
     /* animation: fade 20s infinite linear; */
 
+}
+
+/* tablet y media cel */
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (min-width: 800px) {
+   #cardProgramas{
+        width: 33%;
+    }
+    #textoProgramas2{
+        display: none;
+    }
 }
