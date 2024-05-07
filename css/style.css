@@ -135,4 +135,8 @@ transform: scale(1.1);
     #textoProgramas2{
         display: none;
     }
+     #textoProgramas{
+    font-size: 5px;;
+
+    }
 }
