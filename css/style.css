@@ -3,140 +3,209 @@ html, body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
-#cardProgramas{
-width: 18rem;
-}
-#paddingID{
-padding: 10px; 
-}
-.textoA{
-margin-bottom: 33px;
-}
-.textoB{
-margin-bottom: 48px;
-}
+
 #titulos{
-font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style:normal;
-
-}
-#subtitulos{
-font-family: "Montserrat", sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 23px;
-  color: rgb(255, 255, 255);
-
-}
-
-/* .imagenD {
-transition: zoom-in 1s ease;
-}
-
-.zoom-in {
-transform: scale(1.1);
-} */
-.cardInjuventud{
-    background-color: rgba(28, 28, 28, 0.306);
-}
-#eticaDM{
-    color: aliceblue;
-}
-/* celulares */
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    #imagenResp{
-    background-position: right center;
-    }
-    #cardProgramas{
-    width: 100%;
-    margin-bottom: 5px;
-    }
-    #textoProgramas{
-    font-size: 12px;;
-
-    }
-    #textoProgramas2{
-    display: none;
-
-    }
-    #paddingID{
-    padding: 0px; 
-    }
-    .textoA{
-    margin-bottom: 0px;
-    }
-    .textoB{
-    margin-bottom: 0px;
-    }
-    #titulos{
-    font-size: 27px;
-    }
-    #cardProgramas{
-        opacity: 0.75;
-    }
-    #cardProgramas:hover {
+    font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 800;
+      font-style:normal;
     
-        /* box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06); */
-        transform: scale(1.03);
-        /* transition: width 0.8s, height 0.8s, transform 0.3s; */
+    }
+    #subtitulos{
+    font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 23px;
+      color: rgb(255, 255, 255);
+    
+    }
+
+    .cardInjuventud{
+        background-color: rgba(28, 28, 28, 0.306);
+    }
+    #eticaDM{
+        color: aliceblue;
+    }
+
+@media screen and (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+
+    #imagenResp{
+        background-position: right center;
+        }
+        #cardProgramas{
+        width: 100%;
+        margin-bottom: 5px;
+        }
+        #textoProgramas{
+        font-size: 12px;;
+    
+        }
+        #textoProgramas2{
+        display: none;
+    
+        }
+        #paddingID{
+        padding: 0px; 
+        }
+        .textoA{
+        margin-bottom: 0px;
+        }
+        .textoB{
+        margin-bottom: 0px;
+        }
+        #titulos{
+        font-size: 27px;
+        }
+        #cardProgramas{
+            opacity: 0.75;
+        }
+        #cardProgramas:hover {
         
-      }
-      #cardProgramas:active {
-     
-        box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
-        transform: scale(1.03);
-        transition: width 0.8s, height 0.8s, transform 0.3s;
-        
-      }
+            /* box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06); */
+            transform: scale(1.03);
+            /* transition: width 0.8s, height 0.8s, transform 0.3s; */
+            
+          }
+          #cardProgramas:active {
+         
+            box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
+            transform: scale(1.03);
+            transition: width 0.8s, height 0.8s, transform 0.3s;
+            
+          }
+    
+    
+    /* imágenes carusel */
+    
+    .imgC {
+        /* width: 100%; */
+        height: 100vh;
+    }
+    .vlt-section__content {
+        width: 100%;
+    }
+    
+    .backImg{
+        height: 100vh;
+        width: 100%;
+        background-image: url(../img/portafolio/imagen_fondo_paz_02.png);
+        background-size: cover;
+        background-position:center;
+        background-repeat: no-repeat;
+    
+        /* opacity: 1;
+        transition: opacity 0.5s ease-in-out; */
+    
+        /* animation-name: animateD;
+        animation-direction: alternate-reverse;
+        animation-play-state: running;
+        animation-timing-function: ease-in-out;
+        animation-duration: 30s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite; */
+    
+        /* animation: fade 20s infinite linear; */
+    
+    }
 }
 
-/* imágenes carusel */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Estilos para tablets */
 
-.imgC {
-    /* width: 100%; */
-    height: 100vh;
-}
-.vlt-section__content {
-    width: 100%;
-}
-
-.backImg{
-    height: 100vh;
-    width: 100%;
-    background-image: url(../img/portafolio/imagen_fondo_paz_02.png);
-    background-size: cover;
-    background-position:center;
-    background-repeat: no-repeat;
-
-    /* opacity: 1;
-    transition: opacity 0.5s ease-in-out; */
-
-    /* animation-name: animateD;
-    animation-direction: alternate-reverse;
-    animation-play-state: running;
-    animation-timing-function: ease-in-out;
-    animation-duration: 30s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite; */
-
-    /* animation: fade 20s infinite linear; */
-
-}
-
-/* tablet y media cel */
-/* On screens that are 992px wide or less, go from four columns to two columns */
-@media screen and (min-width: 800px) {
-   #cardProgramas{
-        width: 33%;
+    #titulos{
+       font-size: 27px;
+        }
+    #subtitulos2{
+        font-size: 14px;
+    }
+    #ProgramasT{
+        font-size: 27px;
+    }
+    #cardProgramas{
+        width: 100%;
     }
     #textoProgramas2{
         display: none;
     }
      #textoProgramas{
-    font-size: 5px;;
-
+    font-size: 14px;
+    }
+    .textoProgramasLink{
+        font-size: 12px;
     }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    /* Estilos para pantallas medianas */
+
+
+    #cardProgramas{
+    width: 18rem;
+    }
+    #paddingID{
+    padding: 10px; 
+    }
+    .textoA{
+    margin-bottom: 33px;
+    }
+    .textoB{
+    margin-bottom: 48px;
+    }
+    #textoProgramas{
+        font-size: 18px;;
+    
+        }
+    
+    
+    /* .imagenD {
+    transition: zoom-in 1s ease;
+    }
+    
+    .zoom-in {
+    transform: scale(1.1);
+    } */
+    .cardInjuventud{
+        background-color: rgba(28, 28, 28, 0.306);
+    }
+    #eticaDM{
+        color: aliceblue;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    /* Estilos para pantallas grandes (escritorios) */
+
+    #cardProgramas{
+        width: 18rem;
+        }
+        #paddingID{
+        padding: 10px; 
+        }
+        .textoA{
+        margin-bottom: 33px;
+        }
+        .textoB{
+        margin-bottom: 48px;
+        }
+        #textoProgramas{
+            font-size: 18px;;
+        
+            }
+        
+        
+        /* .imagenD {
+        transition: zoom-in 1s ease;
+        }
+        
+        .zoom-in {
+        transform: scale(1.1);
+        } */
+        .cardInjuventud{
+            background-color: rgba(28, 28, 28, 0.306);
+        }
+        #eticaDM{
+            color: aliceblue;
+        }
+}
+
