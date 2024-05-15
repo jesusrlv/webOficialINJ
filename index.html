@@ -386,7 +386,7 @@
 											<h6 class="border-bottom pb-2 mb-0">Actividades</h6>
 											<span id="actividadesINJU"></span>
 											<small class="d-block text-end mt-3">
-											  <a href="#">All updates</a>
+											  <a href="#" onclick="eventosMesActual()" class="text-light"><i class="bi bi-list-check"></i> Todos los eventos del mes</a>
 											</small>
 										  </div>
 										<!-- calendario -->
@@ -595,6 +595,27 @@
 
 	
 </body>
+
+<!-- sección modales -->
+
+<!-- modal listado eventos del mes -->
+<div class="modal fade" id="modalEventosmes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5 text-dark" id="exampleModalLabel">Eventos del mes</h5>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <span id="eventosMes"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal listado eventos del mes -->
 
 </html>
 

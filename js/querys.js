@@ -8,3 +8,15 @@ function queryEventos(){
         }
     });
 }
+function eventosMesActual(){
+    $('#modalEventosmes').modal('show'); 
+    $.ajax({
+        type: "POST",
+        url: "query/queryEventosMesActual.php",
+        dataType: "html",
+        success: function(data){
+            $('#eventosMes').fadeIn(1000).html(data);
+        }
+    });
+}
+
