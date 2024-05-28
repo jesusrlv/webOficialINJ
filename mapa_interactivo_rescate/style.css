@@ -1,0 +1,19 @@
+body{
+    background: #0051ff22;
+    display: flex; /* es para centrar el contenido*/
+    place-content: center center; /* es para centrar el contenido*/
+}
+
+.container{
+    width: 50%;
+}
+
+.container path {
+    fill:#850707d5;
+    stroke: #b4b3a8;
+    stroke-width: 9px;
+}
+.container svg path:hover {
+    fill: #b2b420a8;
+    
+}
