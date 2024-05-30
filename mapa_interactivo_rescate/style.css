@@ -5,15 +5,31 @@ body{
 }
 
 .container{
-    width: 50%;
+    width: 30%;
+    height: auto;
+    padding: 10px;
 }
 
 .container path {
     fill:#850707d5;
-    stroke: #b4b3a8;
-    stroke-width: 9px;
+    stroke: #ea7d2a;
+    stroke-width: 12px;
+    transition: all 1s;
+    transform-origin: 50% 50%;
+    position: relative;
+    z-index: -1;
 }
 .container svg path:hover {
-    fill: #b2b420a8;
+    /* fill: #b2b420a8; */
+    fill: #4D61FF;
+    transform: scale(1.01);
+    transition: width 0.8s, height 0.8s, transform 0.3s;
+    stroke: #0917db;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     
+}
+
+.container svg path {
+    position: relative;
+    z-index: 1;
 }
