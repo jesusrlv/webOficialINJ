@@ -13,20 +13,23 @@ body{
 }
 
 .container path {
-    fill:#850707d5;
-    stroke: #ea7d2a;
+    /* fill:#850707d5;
+    stroke: #ea7d2a; */
+    fill:#004f67;
+    stroke: #99e7ff;
     stroke-width: 12px;
     transition: all 1s;
     transform-origin: 50% 50%;
     position: relative;
     z-index: -1;
+    
 }
 .container svg path:hover {
     /* fill: #b2b420a8; */
-    fill: #4D61FF;
+    fill: #99e7ff;
+    stroke: #004f67;
     transform: scale(1.01);
     transition: width 0.8s, height 0.8s, transform 0.3s;
-    stroke: #0917db;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     
 }
@@ -34,4 +37,37 @@ body{
 .container svg path {
     position: relative;
     z-index: 1;
+}
+
+/* Móviles grandes (smartphones) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container svg path:active {
+        /* fill: #b2b420a8; */
+        fill: #99e7ff;
+        stroke: #004f67;
+        transform: scale(1.01);
+        transition: width 0.8s, height 0.8s, transform 0.5s;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        
+    }
+}
+@media (max-width: 575px) {
+    .container svg path:active {
+        /* fill: #b2b420a8; */
+        fill: #99e7ff;
+        stroke: #004f67;
+        transform: scale(1.01);
+        transition: width 0.8s, height 0.8s, transform 0.5s;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        
+    }
+    .container{
+        width: 100%;
+        /* height: auto; */
+        padding: 0px;
+        margin: 0;
+    }
+    #textoMin{
+        font-size: 12px;
+    }
 }
