@@ -32,3 +32,7 @@ function abrirOffcanvas() {
     // Mostrar el offcanvas
     bsOffcanvas.show();
   }
+
+  function inside(){
+    $("#modalInside").modal("show");
+  }
