@@ -20,7 +20,8 @@
         echo'
         <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'.$rowSQL['id'].'" aria-expanded="true" aria-controls="collapse'.$rowSQL['id'].'">
-              '.$rowSQL['municipio'].' '.$contar.'
+              <span class="badge text-bg-primary text-end ms-3 ps-5 pe-5">'.$rowSQL['municipio'].'</span> <span class="badge text-bg-danger text-end ms-1 ps-3 pe-3">
+'.$contar.'</span>
             </button>
           </h2>';
           if ($rowSQL['id'] == 1){
@@ -38,14 +39,16 @@
             
               <div class="container">
 
-                <table class="table text-center">
-                  <thead>
+                <table class="table table-sm text-center">
+                  <thead class="table-dark">
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Espacio</th>
                       <th scope="col">Municipio</th>
                       <th scope="col">Ubicación</th>
                       <th scope="col">Fecha interveción</th>
+                      <th scope="col">Antes</th>
+                      <th scope="col">Después</th>
                     </tr>
                   </thead>
                   <tbody>';
