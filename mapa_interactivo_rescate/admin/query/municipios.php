@@ -64,8 +64,8 @@
                       <td>'.$rowSQL['municipio'].'</td>
                       <td>'.$rowMunicipio['ubicacion'].'</td>
                       <td>'.$rowMunicipio['fecha_intervencion'].'</td>
-                      <td><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></td>
-                      <td><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></td>
+                      <td><a href="" onclick=""><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
+                      <td><a href="#" onclick="inside()"><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
                     </tr>
 
                     ';

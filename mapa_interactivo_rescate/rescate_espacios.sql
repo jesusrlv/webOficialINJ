@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-11-2024 a las 20:50:19
+-- Tiempo de generación: 13-11-2024 a las 23:25:56
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -32,23 +32,24 @@ CREATE TABLE `espacio` (
   `nombre_espacio` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `municipio` int(11) NOT NULL,
   `fecha_intervencion` date NOT NULL,
-  `ubicacion` varchar(150) COLLATE utf8_unicode_ci NOT NULL
+  `ubicacion` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `beneficiarios` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `espacio`
 --
 
-INSERT INTO `espacio` (`id`, `nombre_espacio`, `municipio`, `fecha_intervencion`, `ubicacion`) VALUES
-(1, 'Espacio prueba', 3, '2024-11-01', 'sdsdfasfsfsdfsdfsd'),
-(2, 'Espacio prueba', 2, '2024-11-01', 'sdsdfasfsfsdfsdfsd'),
-(3, 'Espacio prueba', 2, '2024-11-01', 'sdsdfasfsfsdfsdfsd'),
-(4, 'Espacio prueba', 8, '2024-11-01', 'sdsdfasfsfsdfsdfsd'),
-(5, 'dsds', 11, '2024-11-21', 'dsdsd'),
-(6, 'dsds', 9, '2024-11-21', 'dsdsd'),
-(7, 'dsdsd', 3, '2024-11-05', 'ds'),
-(8, 'dsdsd', 7, '2024-11-05', 'ds'),
-(9, 's', 1, '2024-11-14', 'ss');
+INSERT INTO `espacio` (`id`, `nombre_espacio`, `municipio`, `fecha_intervencion`, `ubicacion`, `beneficiarios`) VALUES
+(1, 'Espacio prueba', 3, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
+(2, 'Espacio prueba', 2, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
+(3, 'Espacio prueba', 2, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
+(4, 'Espacio prueba', 8, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
+(5, 'dsds', 11, '2024-11-21', 'dsdsd', 0),
+(6, 'dsds', 9, '2024-11-21', 'dsdsd', 0),
+(7, 'dsdsd', 3, '2024-11-05', 'ds', 0),
+(8, 'dsdsd', 7, '2024-11-05', 'ds', 0),
+(9, 's', 1, '2024-11-14', 'ss', 0);
 
 -- --------------------------------------------------------
 

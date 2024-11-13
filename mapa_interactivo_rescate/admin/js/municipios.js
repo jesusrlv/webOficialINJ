@@ -86,3 +86,7 @@ function guardarEvidencia(){
 
 
 }
+
+function inside(){
+    $("#modalInside").modal("show");
+  }
