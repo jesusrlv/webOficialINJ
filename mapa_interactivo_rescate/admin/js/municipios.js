@@ -9,6 +9,21 @@ function municipios(){
     });
 }
 
+function datosMunicipio(municipio){
+    $.ajax({
+        type: "POST",
+        url: "query/datosMunicipio.php",
+        data: {
+            municipio: municipios
+        },
+        dataType: "html",
+        success: function(data){
+            $('#datosMunicipio'+municipio).fadeIn(1000).html(data);
+        }
+    });
+
+}
+
 function agregarEvidencia(municipio){
     $("#modalEvidencia").modal("show");
     municipiosInput();
