@@ -45,6 +45,7 @@ function guardarEvidencia(){
     var municipio = $("#listadoMunicipiosInput").val();
     var ubicacion = $("#ubicacion").val();
     var fechaIntervencion = $("#fechaIntervencion").val();
+    var beneficiarios = $("#beneficiarios").val();
 
     $.ajax({
         type: "POST",
@@ -53,7 +54,8 @@ function guardarEvidencia(){
             espacio: espacio,
             municipio: municipio,
             ubicacion: ubicacion,
-            fechaIntervencion: fechaIntervencion
+            fechaIntervencion: fechaIntervencion,
+            beneficiarios: beneficiarios
             },
         success: function(data){
             var jsonData = JSON.parse(JSON.stringify(data));
@@ -70,6 +72,7 @@ function guardarEvidencia(){
                     document.getElementById("listadoMunicipiosInput").value = "";
                     document.getElementById("ubicacion").value = "";
                     document.getElementById("fechaIntervencion").value = "";
+                    document.getElementById("beneficiarios").value = "";
                     
                     municipios();
                 });
