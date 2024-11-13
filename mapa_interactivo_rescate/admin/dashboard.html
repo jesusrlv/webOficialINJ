@@ -105,6 +105,10 @@
     </div>
   </div>
 
+  <div class="d-grid gap-2">
+    <button class="btn btn-outline-primary" type="button" onclick="agregarEvidencia()"><i class="bi bi-clipboard-plus-fill"></i> Agregar evidenvcia</button>
+  </div>
+
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     <h6 class="border-bottom pb-2 mb-0"><i class="bi bi-globe-americas"></i> Municipios</h6>
     <div class="d-flex text-muted pt-3">
@@ -166,3 +170,48 @@
       
   </body>
 </html>
+
+<!-- Modal agregar evidencia-->
+<div class="modal fade" id="modalEvidencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar evidencia</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-building-fill-add"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre del espacio" aria-label="Nombre del espacio" aria-describedby="basic-addon1" id="nombreEspacio">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-globe-americas"></i></span>
+
+            <select class="form-select" placeholder="Municipio" aria-label="Municipio" id="listadoMunicipiosInput">
+              
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-fill"></i></span>
+            <input type="text" class="form-control" placeholder="Ubicación" aria-label="Ubiocación" aria-describedby="basic-addon1" id="ubicacion">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-plus"></i></span>
+            <input type="date" class="form-control" placeholder="Fecha de intervención" aria-label="Fecha de intervención" aria-describedby="basic-addon1" id="fechaIntervencion">
+          </div>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
