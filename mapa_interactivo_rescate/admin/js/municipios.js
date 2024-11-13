@@ -43,13 +43,19 @@ function guardarEvidencia(){
         success: function(data){
             var jsonData = JSON.parse(JSON.stringify(data));
             var success = jsonData.success;
-            if(success == 1){
+            if(success = 1){
                 Swal.fire({
                     icon: "success",
                     title: "Evidencia guardada",
                     text: "La evidencia ha sido guardada exitosamente",
                     footer: "INJUVENTD"
                 }).then(function(){
+                    $("#modalEvidencia").modal("hide");
+                    document.getElementById("nombreEspacio").value = "";
+                    document.getElementById("listadoMunicipiosInput").value = "";
+                    document.getElementById("ubicacion").value = "";
+                    document.getElementById("fechaIntervencion").value = "";
+                    
                     municipios();
                 });
             } else {
