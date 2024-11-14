@@ -23,7 +23,7 @@
       $rowContar = $resultadoContar->fetch_assoc();
       $contar = $rowContar['total_espacios'];
       
-      $promedio = ($contar * 100)/$contar2;
+      $promedio = round(($contar * 100)/$contar2);
 
         echo'
         <h2 class="accordion-header">
@@ -33,8 +33,8 @@
               <span class="badge text-bg-primary text-end ms-3 ps-5 pe-5">'.$rowSQL['municipio'].'</span> <span class="badge text-bg-danger text-end ms-1 ps-3 pe-3">
 '.$contar.'</span>
 
-            <div class="progress ms-2" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar" style="width: '.$promedio.'%">'.$promedio.'</div>
+            <div class="progress ms-2 me-3 w-100" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: '.$promedio.'%">'.$promedio.'%</div>
             </div>
             </button>
           </h2>';
@@ -80,8 +80,8 @@
                       <td>'.$rowMunicipio['ubicacion'].'</td>
                       <td>'.$rowMunicipio['fecha_intervencion'].'</td>
                       <td>'.$rowMunicipio['beneficiarios'].'</td>
-                      <td><a href="" onclick=""><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
-                      <td><a href="#" onclick="inside()"><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
+                      <td><a href="#" onclick="modalAntes()"><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
+                      <td><a href="#" onclick="modalDespues()"><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
                     </tr>
 
                     ';

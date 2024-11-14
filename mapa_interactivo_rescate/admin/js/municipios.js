@@ -90,6 +90,12 @@ function guardarEvidencia(){
 
 }
 
+function modalAntes(){
+    $("#modalAntes").modal("show");
+  }
+function modalDespues(){
+    $("#modalDespues").modal("show");
+  }
 function inside(){
     $("#modalInside").modal("show");
   }
