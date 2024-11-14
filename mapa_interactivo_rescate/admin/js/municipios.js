@@ -4,7 +4,7 @@ function municipios(){
         url: "query/municipios.php",
         dataType: "html",
         success: function(data){
-            $('#listadoMunicipios').fadeIn(1000).html(data);
+            $('#accordion1').fadeIn(1000).html(data);
         }
     });
 }

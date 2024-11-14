@@ -24,12 +24,21 @@
       $contar = $rowContar['total_espacios'];
       
       $promedio = round(($contar * 100)/$contar2);
-
+      echo'
+      <div class="accordion-item" id="listadoMunicipios">
+       
+      <h2 class="accordion-header">
+      ';
+      if ($rowSQL['id'] == 1){
         echo'
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'.$rowSQL['id'].'" aria-expanded="true" aria-controls="collapse'.$rowSQL['id'].'">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'.$rowSQL['id'].'" aria-expanded="true" aria-controls="collapse'.$rowSQL['id'].'">';
+      }
+      else{
+        echo'
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'.$rowSQL['id'].'" aria-expanded="false" aria-controls="collapse'.$rowSQL['id'].'">';
+      }
             
-            
+            echo'
               <span class="badge text-bg-primary text-end ms-3 ps-5 pe-5">'.$rowSQL['municipio'].'</span> <span class="badge text-bg-danger text-end ms-1 ps-3 pe-3">
 '.$contar.'</span>
 
@@ -94,6 +103,7 @@
             
             </div>
           </div>
+           </div>
         ';
 
     }
