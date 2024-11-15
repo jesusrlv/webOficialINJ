@@ -150,6 +150,7 @@ function modalDespues(id,val){
         }
     });  
 }
-function inside(){
+function inside(imagen){
     $("#modalInside").modal("show");
+    document.getElementById("inside").setAttribute("src", "../docs/"+imagen+"");
   }
