@@ -10,12 +10,10 @@
         $imagen = $row['ruta'];
         echo '
         <div class="col-sm-12 col-md-3 text-center position-relative">
-        <img src="../docs/'.$row['ruta'].'" class="img-thumbnail" alt="" onclick="inside(\''.$imagen.'\')">
+            <img src="../docs/'.$row['ruta'].'" class="img-thumbnail" alt="" onclick="inside(\''.$imagen.'\')">
 
-
-  <span class="badge rounded-pill text-bg-danger mt-2 position-absolute" style="bottom: 10px; left: 50%; transform: translateX(-50%);" onclick="deleteImage()"><i class="bi bi-trash"></i></span>
-
-</div>
+            <span class="badge rounded-pill text-bg-danger mt-2 position-absolute" style="bottom: 10px; left: 50%; transform: translateX(-50%);" onclick="deleteImage()"><i class="bi bi-trash"></i></span>
+        </div>
         ';
     }
 
