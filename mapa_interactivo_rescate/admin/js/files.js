@@ -37,8 +37,10 @@ function _(el) {
       function completeHandler(event) {
         _("status").innerHTML = event.target.responseText;
         _("progressBar").value = 0; //wil clear progress bar after successful upload
-          _("file1").style.display='none';
+          // _("file1").style.display='none';
+          _("file1").value = "";
           _("progressBar").style.display='none';
+          photosAntes();
       }
       
       function errorHandler(event) {
@@ -85,8 +87,10 @@ function _(el) {
       function completeHandler(event) {
         _("status2").innerHTML = event.target.responseText;
         _("progressBar2").value = 0; //wil clear progress bar after successful upload
-          _("file2").style.display='none';
+          // _("file2").style.display='none';
+          _("file2").value = "";
           _("progressBar2").style.display='none';
+          photosDespues();
       }
       
       function errorHandler(event) {

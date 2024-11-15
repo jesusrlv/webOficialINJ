@@ -98,20 +98,28 @@ function modalAntes(id,val){
     document.getElementById("idAntes").value = idMun;
     document.getElementById("evAntes").value = valor;
 
-    // $.ajax({
-    //     type: "POST",
-    //     url: "query/modalAntes.php",
-    //     data: {
-    //         idMun: idMun,
-    //         valor: valor
-    //         },
-    //     dataType: "html",
-    //     success: function(data){
-    //         $('#photoAntes').fadeIn(1000).html(data);
-      
-    //     }
-    // });
+    photosAntes();
   }
+
+function photosAntes(){
+
+    var idMun = document.getElementById("idAntes").value;
+    var valor = document.getElementById("evAntes").value;
+
+    $.ajax({
+        type: "POST",
+        url: "query/modalAntes.php",
+        data: {
+            idMun: idMun,
+            valor: valor
+            },
+        dataType: "html",
+        success: function(data){
+            $('#cargaPhotosAntes').fadeIn(1000).html(data);
+      
+        }
+    });  
+}
 function modalDespues(id,val){
     $("#modalDespues").modal("show");
     var idMun = id;
@@ -120,20 +128,28 @@ function modalDespues(id,val){
     document.getElementById("idDespues").value = idMun;
     document.getElementById("evDespues").value = valor;
 
-    // $.ajax({
-    //     type: "POST",
-    //     url: "query/modalDespues.php",
-    //     data: {
-    //         idMun: idMun,
-    //         valor: valor
-    //         },
-    //     dataType: "html",
-    //     success: function(data){
-    //         $('#photoDespues').fadeIn(1000).html(data);
-      
-    //     }
-    // });
+    photosDespues();
   }
+
+  function photosDespues(){
+
+    var idMun = document.getElementById("idDespues").value;
+    var valor = document.getElementById("evDespues").value;
+
+    $.ajax({
+        type: "POST",
+        url: "query/modalDespues.php",
+        data: {
+            idMun: idMun,
+            valor: valor
+            },
+        dataType: "html",
+        success: function(data){
+            $('#cargaPhotosDespues').fadeIn(1000).html(data);
+      
+        }
+    });  
+}
 function inside(){
     $("#modalInside").modal("show");
   }
