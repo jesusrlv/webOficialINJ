@@ -235,10 +235,12 @@
         <div class="container">
           <h3>¿Qué evidencia deseas agregar?</h3>
           <form id="upload_form" enctype="multipart/form-data" method="post">
+            <input type="text" id="idAntes">
+            <input type="text" id="evAntes">
             <div class="input-group mb-3">
-              <input type="file" id="file" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
+              <input type="file" id="file1" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-image-fill"></i></span>
-              <button type="button" class="btn btn-primary" onclick="uploadFile()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
+              <button type="button" class="btn btn-primary" onclick="uploadFileAntes()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
             </div>
             <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
             <small id="status"></small>
@@ -297,14 +299,16 @@
         <div class="container">
           <h3>¿Qué evidencia deseas agregar?</h3>
           <form id="upload_form" enctype="multipart/form-data" method="post">
+            <input type="text" id="idDespues">
+            <input type="text" id="evDespues">
             <div class="input-group mb-3">
-              <input type="file" id="file" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
+              <input type="file" id="file2" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-image-fill"></i></span>
-              <button type="button" class="btn btn-primary" onclick="uploadFile()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
+              <button type="button" class="btn btn-primary" onclick="uploadFileDespues()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
             </div>
-            <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
-            <small id="status"></small>
-            <p id="loaded_n_total"></p>
+            <progress id="progressBar2" value="0" max="100" style="width:300px;"></progress>
+            <small id="status2"></small>
+            <p id="loaded_n_total2"></p>
           </form>
           
         </div>

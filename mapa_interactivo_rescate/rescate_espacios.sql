@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-11-2024 a las 23:25:56
+-- Tiempo de generación: 15-11-2024 a las 08:48:40
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,8 +61,16 @@ CREATE TABLE `fotos` (
   `id` int(11) NOT NULL,
   `ruta` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `id_ext` int(11) NOT NULL,
-  `tipo_foto` int(11) NOT NULL
+  `tipo_foto` int(11) NOT NULL,
+  `complemento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `fotos`
+--
+
+INSERT INTO `fotos` (`id`, `ruta`, `id_ext`, `tipo_foto`, `complemento`) VALUES
+(2, '9_1_2.jpg', 9, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -178,7 +186,7 @@ ALTER TABLE `espacio`
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `municipio`

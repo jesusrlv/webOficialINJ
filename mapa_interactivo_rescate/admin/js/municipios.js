@@ -95,38 +95,44 @@ function modalAntes(id,val){
     var idMun = id;
     var valor = val;
 
-    $.ajax({
-        type: "POST",
-        url: "query/modalAntes.php",
-        data: {
-            idMun: idMun,
-            valor: valor
-            },
-        dataType: "html",
-        success: function(data){
-            $('#photoAntes').fadeIn(1000).html(data);
+    document.getElementById("idAntes").value = idMun;
+    document.getElementById("evAntes").value = valor;
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "query/modalAntes.php",
+    //     data: {
+    //         idMun: idMun,
+    //         valor: valor
+    //         },
+    //     dataType: "html",
+    //     success: function(data){
+    //         $('#photoAntes').fadeIn(1000).html(data);
       
-        }
-    });
+    //     }
+    // });
   }
 function modalDespues(id,val){
     $("#modalDespues").modal("show");
     var idMun = id;
     var valor = val;
 
-    $.ajax({
-        type: "POST",
-        url: "query/modalDespues.php",
-        data: {
-            idMun: idMun,
-            valor: valor
-            },
-        dataType: "html",
-        success: function(data){
-            $('#photoDespues').fadeIn(1000).html(data);
+    document.getElementById("idDespues").value = idMun;
+    document.getElementById("evDespues").value = valor;
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "query/modalDespues.php",
+    //     data: {
+    //         idMun: idMun,
+    //         valor: valor
+    //         },
+    //     dataType: "html",
+    //     success: function(data){
+    //         $('#photoDespues').fadeIn(1000).html(data);
       
-        }
-    });
+    //     }
+    // });
   }
 function inside(){
     $("#modalInside").modal("show");
