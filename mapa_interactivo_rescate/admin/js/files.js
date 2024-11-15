@@ -37,7 +37,7 @@ function _(el) {
       function completeHandler(event) {
         _("status").innerHTML = event.target.responseText;
         _("progressBar").value = 0; //wil clear progress bar after successful upload
-          _("file2").style.display='none';
+          _("file1").style.display='none';
           _("progressBar").style.display='none';
       }
       
@@ -85,7 +85,7 @@ function _(el) {
       function completeHandler(event) {
         _("status2").innerHTML = event.target.responseText;
         _("progressBar2").value = 0; //wil clear progress bar after successful upload
-          _("file").style.display='none';
+          _("file2").style.display='none';
           _("progressBar2").style.display='none';
       }
       
