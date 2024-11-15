@@ -65,14 +65,16 @@
                 <table class="table table-sm text-center">
                   <thead class="table-dark">
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Espacio</th>
-                      <th scope="col">Municipio</th>
-                      <th scope="col">Ubicación</th>
-                      <th scope="col">Fecha interveción</th>
-                      <th scope="col">Beneficiarios</th>
-                      <th scope="col">Antes</th>
-                      <th scope="col">Después</th>
+                      <th scope="col" class="small">#</th>
+                      <th scope="col"class="small"><i class="bi bi-map"></i> Espacio</th>
+                      <th scope="col" class="small"><i class="bi bi-globe-americas"></i> Municipio</th>
+                      <th scope="col" class="small"><i class="bi bi-geo"></i> Ubicación</th>
+                      <th scope="col" class="small"><i class="bi bi-calendar2-event"></i> Fecha interveción</th>
+                      <th scope="col" class="small"><i class="bi bi-people-fill"></i> Beneficiarios</th>
+                      <th scope="col" class="small"><i class="bi bi-sign-turn-left-fill"></i> Antes</th>
+                      <th scope="col" class="small"><i class="bi bi-sign-turn-right-fill"></i> Después</th>
+                      <th scope="col" class="small"><i class="bi bi-pencil-square"></i> Editar</th>
+                      <th scope="col" class="small"><i class="bi bi-trash"></i> Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>';
@@ -86,11 +88,13 @@
                       '.$x.'</th>
                       <td>'.$rowMunicipio['nombre_espacio'].'</td>
                       <td>'.$rowSQL['municipio'].'</td>
-                      <td>'.$rowMunicipio['ubicacion'].'</td>
+                      <td><a href="'.$rowMunicipio['ubicacion'].'" target="_blank"><span class="badge rounded-pill text-bg-warning"><i class="bi bi-geo"></i></span></a></td>
                       <td>'.$rowMunicipio['fecha_intervencion'].'</td>
                       <td>'.$rowMunicipio['beneficiarios'].'</td>
-                      <td><a href="#" onclick="modalAntes('.$rowMunicipio['id'].',1)"><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
-                      <td><a href="#" onclick="modalDespues('.$rowMunicipio['id'].',2)"><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
+                      <td><a href="#" onclick="modalAntes('.$rowMunicipio['id'].',1)"><span class="badge text-bg-secondary"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
+                      <td><a href="#" onclick="modalDespues('.$rowMunicipio['id'].',2)"><span class="badge text-bg-success">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
+                      <td><a href="#" onclick="editar('.$rowMunicipio['id'].')"><span class="badge text-bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>
+                      <td><a href="#" onclick="eliminar('.$rowMunicipio['id'].')"><span class="badge text-bg-danger"><i class="bi bi-trash"></i> Eliminar</span></a></td>
                     </tr>
 
                     ';

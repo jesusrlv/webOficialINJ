@@ -154,3 +154,8 @@ function inside(imagen){
     $("#modalInside").modal("show");
     document.getElementById("inside").setAttribute("src", "../docs/"+imagen+"");
   }
+
+// function localizacion(ubicacion){
+//     $("#modalLocalizacion").modal("show");
+//     document.getElementById("mapa").innerHTML = ubicacion;
+// }
