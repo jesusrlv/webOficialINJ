@@ -6,6 +6,7 @@
     $sqlDelete = "DELETE FROM fotos WHERE id = '$id'";
     $resultadoDelete = $conn->query($sqlDelete);
     if($resultadoDelete){
+        $row = $resultadoDelete->fetch_assoc();
         echo json_encode(array(
             "success" => 1
         ));
