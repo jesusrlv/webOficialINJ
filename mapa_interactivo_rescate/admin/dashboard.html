@@ -222,6 +222,56 @@
   </div>
 </div>
 
+<!-- Modal editar evidencia-->
+<div class="modal fade" id="modalEditarDatos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar evidencia</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-building-fill-add"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre del espacio" aria-label="Nombre del espacio" aria-describedby="basic-addon1" id="nombreEspacioEditar">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-globe-americas"></i></span>
+
+            <select class="form-select" placeholder="Municipio" aria-label="Municipio" id="listadoMunicipiosInputEditar">
+              
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-fill"></i></span>
+            <input type="text" class="form-control" placeholder="Ubicación" aria-label="Ubicación" aria-describedby="basic-addon1" id="ubicacionEditar">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-plus"></i></span>
+            <input type="date" class="form-control" placeholder="Fecha de intervención" aria-label="Fecha de intervención" aria-describedby="basic-addon1" id="fechaIntervencionEditar">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-arms-up"></i></span>
+            <input type="number" class="form-control" placeholder="Beneficiarios" aria-label="Fecha de intervención" aria-describedby="basic-addon1" id="beneficiariosEditar">
+          </div>
+          <input type="text" id="idEditar" hidden>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="editarEvidencia()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal de antes -->
 <div class="modal fade" id="modalAntes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">

@@ -39,6 +39,16 @@ function municipiosInput(){
         }
     });
 }
+function municipiosInputEditar(){
+    $.ajax({
+        type: "POST",
+        url: "query/municipiosInput.php",
+        dataType: "html",
+        success: function(data){
+            $('#listadoMunicipiosInputEditar').fadeIn(1000).html(data);
+        }
+    });
+}
 
 function guardarEvidencia(){
     var espacio = $("#nombreEspacio").val();
@@ -86,7 +96,58 @@ function guardarEvidencia(){
             }
         }
     });
+}
 
+function editarEvidencia(){
+    var espacio = $("#nombreEspacioEditar").val();
+    var municipio = $("#listadoMunicipiosInputEditar").val();
+    var ubicacion = $("#ubicacionEditar").val();
+    var fechaIntervencion = $("#fechaIntervencionEditar").val();
+    var beneficiarios = $("#beneficiariosEditar").val();
+    var id = $("#idEditar").val();
+
+    $.ajax({
+        type: "POST",
+        url: "query/editarEvidencia.php",
+        data: {
+            espacio: espacio,
+            municipio: municipio,
+            ubicacion: ubicacion,
+            fechaIntervencion: fechaIntervencion,
+            beneficiarios: beneficiarios,
+            id: id
+            },
+        success: function(data){
+            var jsonData = JSON.parse(JSON.stringify(data));
+            var success = jsonData.success;
+            if(success = 1){
+                Swal.fire({
+                    icon: "success",
+                    title: "Evidencia editada",
+                    text: "La evidencia ha sido editada exitosamente",
+                    footer: "INJUVENTD"
+                }).then(function(){
+                    municipios();
+                    $("#modalEditarDatos").modal("hide");
+                    document.getElementById("nombreEspacioEditar").value = "";
+                    document.getElementById("listadoMunicipiosInputEditar").value = "";
+                    document.getElementById("ubicacionEditar").value = "";
+                    document.getElementById("fechaIntervencionEditar").value = "";
+                    document.getElementById("beneficiariosEditar").value = "";
+                    document.getElementById("idEditar").value = "";
+                    
+                    municipios();
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error al guardar la evidencia",
+                    text: "Hubo un error al guardar la evidencia",
+                    footer: "INJUVENTD"
+                });
+            }
+        }
+    });
 
 }
 
@@ -155,7 +216,41 @@ function inside(imagen){
     document.getElementById("inside").setAttribute("src", "../docs/"+imagen+"");
   }
 
-// function localizacion(ubicacion){
-//     $("#modalLocalizacion").modal("show");
-//     document.getElementById("mapa").innerHTML = ubicacion;
-// }
+function editarDatos(id){
+    $("#modalEditarDatos").modal("show");
+    municipiosInputEditar();
+    $.ajax({
+        type: "POST",
+        url: "query/queryDatos.php",
+        data: {
+            id: id
+            },
+        dataType: "json",
+        success: function(data){
+            var jsonData = JSON.parse(JSON.stringify(data));
+            var success = jsonData.success;
+            if(success = 1){
+                var nombre_espacio = jsonData.nombre_espacio;
+                var municipio = jsonData.municipio;
+                var fecha_intervencion = jsonData.fecha_intervencion;
+                var ubicacion = jsonData.ubicacion;
+                var beneficiarios = jsonData.beneficiarios;
+            
+                document.getElementById("nombreEspacioEditar").value = nombre_espacio;
+                document.getElementById("listadoMunicipiosInputEditar").value = municipio;
+                document.getElementById("fechaIntervencionEditar").value = fecha_intervencion;
+                document.getElementById("ubicacionEditar").value = ubicacion;
+                document.getElementById("beneficiariosEditar").value = beneficiarios;
+                document.getElementById("idEditar").value = id;
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error al cargar los datos",
+                    text: "Hubo un error al cargar los datos",
+                    footer: "INJUVENTD"
+                });
+            }
+        }
+    });
+
+}
