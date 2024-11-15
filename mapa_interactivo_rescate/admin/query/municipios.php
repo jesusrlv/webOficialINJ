@@ -89,8 +89,8 @@
                       <td>'.$rowMunicipio['ubicacion'].'</td>
                       <td>'.$rowMunicipio['fecha_intervencion'].'</td>
                       <td>'.$rowMunicipio['beneficiarios'].'</td>
-                      <td><a href="#" onclick="modalAntes()"><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
-                      <td><a href="#" onclick="modalDespues()"><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
+                      <td><a href="#" onclick="modalAntes('.$rowMunicipio['id'].',1)"><span class="badge text-bg-warning"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
+                      <td><a href="#" onclick="modalDespues('.$rowMunicipio['id'].',2)"><span class="badge text-bg-primary">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
                     </tr>
 
                     ';

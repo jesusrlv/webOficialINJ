@@ -90,11 +90,43 @@ function guardarEvidencia(){
 
 }
 
-function modalAntes(){
+function modalAntes(id,val){
     $("#modalAntes").modal("show");
+    var idMun = id;
+    var valor = val;
+
+    $.ajax({
+        type: "POST",
+        url: "query/modalAntes.php",
+        data: {
+            idMun: idMun,
+            valor: valor
+            },
+        dataType: "html",
+        success: function(data){
+            $('#photoAntes').fadeIn(1000).html(data);
+      
+        }
+    });
   }
-function modalDespues(){
+function modalDespues(id,val){
     $("#modalDespues").modal("show");
+    var idMun = id;
+    var valor = val;
+
+    $.ajax({
+        type: "POST",
+        url: "query/modalDespues.php",
+        data: {
+            idMun: idMun,
+            valor: valor
+            },
+        dataType: "html",
+        success: function(data){
+            $('#photoDespues').fadeIn(1000).html(data);
+      
+        }
+    });
   }
 function inside(){
     $("#modalInside").modal("show");
