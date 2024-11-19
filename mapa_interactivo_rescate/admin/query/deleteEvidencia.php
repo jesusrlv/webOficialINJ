@@ -14,7 +14,9 @@
         $sqlPhotos = "SELECT * FROM fotos WHERE id_ext = '$idEvidencia'";
         $resultadoPhotos = $conn->query($sqlPhotos);
         while($rowPhotos = $resultadoPhotos->fetch_assoc()){
-
+            $idPhotos = $rowPhotos['id'];
+            $file = $rowPhotos['ruta'];
+            $sqlDeletePhoto = "DELETE * FROM fotos WHERE id "
         }
         if($sqlDeleteEvidencia){
             echo json_encode(array(
