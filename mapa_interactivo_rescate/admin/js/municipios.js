@@ -291,6 +291,10 @@ function deleteImage(idImg) {
 function deleteEvidencia(ev){
     var id = ev;
 
+    if (confirm("¿Estás seguro de que deseas eliminar este elemento?")) {
+        // Si el usuario hace clic en "Aceptar", ejecuta la función de eliminar
+        deleteItem();
+   
     $.ajax({
         type: "POST",
         url: "query/deleteEvidencia.php",
@@ -319,5 +323,10 @@ function deleteEvidencia(ev){
             }
         }
     });
+
+} else {
+    // Si el usuario hace clic en "Cancelar", no hacer nada
+    console.log("Cancelado");
+}
 
 }
