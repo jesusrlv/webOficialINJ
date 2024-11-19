@@ -5,6 +5,10 @@ function _(el) {
   
   function uploadFileAntes() {
     var file = _("file1").files[0];
+    if (file == "" || file == null){
+      alert("Por favor, seleccione un archivo");
+      return;
+    }
     var formdata = new FormData();
     var id = document.getElementById("idAntes").value;
     var tipo = document.getElementById("evAntes").value;
@@ -55,6 +59,10 @@ function _(el) {
   
   function uploadFileDespues() {
     var file = _("file2").files[0];
+    if (file == "" || file == null){
+      alert("Por favor, seleccione un archivo");
+      return;
+    }
     var formdata = new FormData();
     var id = document.getElementById("idDespues").value;
     var tipo = document.getElementById("evDespues").value;
