@@ -287,3 +287,37 @@ function deleteImage(idImg) {
         }
     });
 }
+
+function deleteEvidencia(ev){
+    var id = ev;
+
+    $.ajax({
+        type: "POST",
+        url: "query/deleteEvidencia.php",
+        data: {
+            id: id
+            },
+        success: function(data){
+            var jsonData = JSON.parse(JSON.stringify(data));
+            var success = jsonData.success;
+            if(success = 1){
+                Swal.fire({
+                    icon: "success",
+                    title: "Evidencia eliminada",
+                    text: "La evidencia ha sido eliminada exitosamente",
+                    footer: "INJUVENTD"
+                }).then(function(){
+                    municipios();
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error al eliminar la evidencia",
+                    text: "Hubo un error al eliminar la evidencia",
+                    footer: "INJUVENTD"
+                });
+            }
+        }
+    });
+
+}

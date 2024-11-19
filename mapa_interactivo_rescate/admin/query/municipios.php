@@ -94,7 +94,7 @@
                       <td><a href="#" onclick="modalAntes('.$rowMunicipio['id'].',1)"><span class="badge text-bg-secondary"><i class="bi bi-sign-turn-left-fill"></i> Antes</span></a></td>
                       <td><a href="#" onclick="modalDespues('.$rowMunicipio['id'].',2)"><span class="badge text-bg-success">Después <i class="bi bi-sign-turn-right-fill"></i></span></a></td>
                       <td><a href="#" onclick="editarDatos('.$rowMunicipio['id'].')"><span class="badge text-bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>
-                      <td><a href="#" onclick="eliminar('.$rowMunicipio['id'].')"><span class="badge text-bg-danger"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+                      <td><a href="#" onclick="deleteEvidencia('.$rowMunicipio['id'].')"><span class="badge text-bg-danger"><i class="bi bi-trash"></i> Eliminar</span></a></td>
                     </tr>
 
                     ';
