@@ -318,7 +318,7 @@
   </div>
   <div class="offcanvas-body">
     <h3>Datos del municipio</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni mollitia pariatur nihil suscipit blanditiis doloremque voluptatum modi, quia similique amet aspernatur. Quasi, eius vero nulla itaque blanditiis velit. Obcaecati, quae?</p>
+    <p id="datosMunicipio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni mollitia pariatur nihil suscipit blanditiis doloremque voluptatum modi, quia similique amet aspernatur. Quasi, eius vero nulla itaque blanditiis velit. Obcaecati, quae?</p>
     <hr>
     <div class="container">
       <div class="row justify-content-center">
@@ -331,7 +331,7 @@
                 <h5 class="card-title">Espacios intervenidos</h5>
               </div>
               <div class="col-md-12 my-auto text-center justify-content-center">
-                <span style="font-size: 81px;"> 17</span>
+                <span style="font-size: 81px;" id="contadorMunicipio"> 17</span>
               </div>
             </div>
           </div>
@@ -341,10 +341,10 @@
           <div class="card bg-danger text-light mb-3" style="max-width: 360px;">
             <div class="row g-0">
               <div class="card-body">
-                <h5 class="card-title">Inversión</h5>
+                <h5 class="card-title">Población</h5>
               </div>
               <div class="col-md-12 my-auto text-center justify-content-center">
-                <span style="font-size: 81px;"> 17</span>
+                <span style="font-size: 81px;" id="poblacionMunicipio"> 17</span>
               </div>
             </div>
           </div>
@@ -357,7 +357,7 @@
                 <h5 class="card-title">Beneficiarios</h5>
               </div>
               <div class="col-md-12 my-auto text-center justify-content-center">
-                <span style="font-size: 81px;"> 17</span>
+                <span style="font-size: 81px;" id="beneficioriosMunicipio"> 17</span>
               </div>
             </div>
           </div>
@@ -376,7 +376,7 @@
                   <th scope="col">Intervenido</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="resultadoTable">
                 <tr>
                   <th scope="row">1</th>
                   <td>Espacio 1</td>

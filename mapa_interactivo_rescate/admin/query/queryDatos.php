@@ -16,3 +16,5 @@
         'beneficiarios'=>$row['beneficiarios'],
         'id'=>$row['id']
     ));
+
+?>

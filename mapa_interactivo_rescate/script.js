@@ -13,17 +13,48 @@ function mostrarNombre(event) {
 
     $.ajax({
       type: "POST",
-        url: "query/queryDatosMunicipio.php",
+        url: "admin/query/queryDatosMunicipio.php",
         data: {
             idMunicipio: idMunicipio
             },
+        dataType: "json",
         success: function(data){
-          
+          var jsonData = JSON.parse(JSON.stringify(data));
+            var success = jsonData.success;
+            if(success == 1){
+              var info = jsonData.info;
+              var poblacion = jsonData.poblacion;
+              var idMun = jsonData.idMun;
+              var contar = jsonData.contar;
+              var sumaBeneficiarios = jsonData.sumaBeneficiarios;
+
+              document.getElementById('datosMunicipio').innerHTML = info;
+              document.getElementById('contadorMunicipio').innerHTML = contar;
+              document.getElementById('poblacionMunicipio').innerHTML = poblacion;
+              document.getElementById('poblacionMunicipio').innerHTML = poblacion;
+              document.getElementById('beneficioriosMunicipio').innerHTML = sumaBeneficiarios;
+
+              espaciosIntervenidos(idMun);
+            }
         }
 
     });
 
+}
 
+function espaciosIntervenidos(idMun){
+  var id = idMun;
+  $.ajax({
+    type: "POST",
+      url: "admin/query/queryTabla.php",
+      data: {
+          id: id
+          },
+      dataType: "html",
+      success: function(data){
+        $('#resultadoTable').fadeIn(1000).html(data);
+      }
+  });
 }
 
 // Agregar eventos a cada municipio
