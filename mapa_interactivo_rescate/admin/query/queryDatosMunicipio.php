@@ -20,6 +20,16 @@ require('qc.php');
     $rowSumar = $resultadoSumar->fetch_assoc();
     $sumaBeneficiarios = $rowSumar['suma'];
 
+    if($contar == NULL || $contar == ""){
+        $contar = 0;
+    }
+    if($sumaBeneficiarios == NULL || $sumaBeneficiarios == ""){
+        $sumaBeneficiarios = 0;
+    }
+    if($poblacion == NULL || $poblacion == ""){
+        $poblacion = 0;
+    }
+
     // $sql = "SELECT * FROM espacio WHERE id = '$id'";
     // $resultadoSql = $conn->query($sql);
     // $row = $resultadoSql->fetch_assoc();
