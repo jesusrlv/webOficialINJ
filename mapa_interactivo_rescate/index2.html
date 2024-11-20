@@ -363,6 +363,7 @@
           </div>
         </div>
         <div class="col-md-12 col-sm-12">
+          <h3 class="text-start mt-3"><i class="bi bi-list-check"></i> Detalles de espacios</h3>
           <div class="table-responsive mt-5">
               <table class="table table-borderless table-sm table-hover table-striped">
               <thead class="border-bottom">
@@ -377,33 +378,7 @@
                 </tr>
               </thead>
               <tbody id="resultadoTable">
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Espacio 1</td>
-                  <td>800</td>
-                  <td>23 de nov 2024</td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-geo"></i></span></td>
-                  <td><a href="" data-bs-toggle="modal" data-bs-target="#modalAntes"><span class="badge rounded-pill text-bg-primary"><i class="bi bi-arrow-counterclockwise"></i></span></a></td>
-                  <td><a href="" data-bs-toggle="modal" data-bs-target="#modalDespues"><span class="badge rounded-pill text-bg-primary"><i class="bi bi-clipboard-check-fill"></span></a></i></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Espacio 2</td>
-                  <td>600</td>
-                  <td>24 de nov 2024</td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-geo"></i></span></td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-arrow-counterclockwise"></i></span></td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-clipboard-check-fill"></span></i></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Espacio 3</td>
-                  <td>400</td>
-                  <td>25 de nov 2024</td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-geo"></i></span></td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-arrow-counterclockwise"></i></span></td>
-                  <td><span class="badge rounded-pill text-bg-primary"><i class="bi bi-clipboard-check-fill"></span></i></td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -416,19 +391,41 @@
   </div>
 </div>
 
+
 <!-- Modal de antes -->
 <div class="modal fade" id="modalAntes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Fotografías antes de intervenir</h1>
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel"><i class="bi bi-images"></i> Fotografías antes de intervenir</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+
+        <div class="container">
+          <h3>¿Qué evidencia deseas agregar?</h3>
+          <form id="upload_form" enctype="multipart/form-data" method="post">
+            <input type="text" id="idAntes" hidden>
+            <input type="text" id="evAntes" hidden>
+            <div class="input-group mb-3">
+              <input type="file" id="file1" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-image-fill"></i></span>
+              <button type="button" class="btn btn-primary" onclick="uploadFileAntes()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
+            </div>
+            <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+            <small id="status"></small>
+            <p id="loaded_n_total"></p>
+          </form>
+          
+        </div>
+
+        <div class="row g-2" id="cargaPhotosAntes">
+          <div id="cargaPhotosAntes"></div>
+        </div>
+        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
       </div>
     </div>
   </div>
@@ -439,41 +436,34 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Fotografías después de intervenir</h1>
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel"><i class="bi bi-images"></i> Fotografías después de intervenir</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row g-2">
-          <div class="col-sm-12 col-md-3">
-            
-              <img src="../img/portafolio/injuventud_06.jpeg" class="img-thumbnail" alt="" onclick="inside()">
-        
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_06.jpeg" class="img-thumbnail" alt="">
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_06.jpeg" class="img-thumbnail" alt="">
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_06.jpeg" class="img-thumbnail" alt="">
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_06.jpeg" class="img-thumbnail" alt="">
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_05.jpeg" class="img-thumbnail" alt="">
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_05.jpeg" class="img-thumbnail" alt="">
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <img src="../img/portafolio/injuventud_05.jpeg" class="img-thumbnail" alt="">
-          </div>
+
+        <div class="container">
+          <h3>¿Qué evidencia deseas agregar?</h3>
+          <form id="upload_form" enctype="multipart/form-data" method="post">
+            <input type="text" id="idDespues" hidden>
+            <input type="text" id="evDespues" hidden>
+            <div class="input-group mb-3">
+              <input type="file" id="file2" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-image-fill"></i></span>
+              <button type="button" class="btn btn-primary" onclick="uploadFileDespues()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
+            </div>
+            <progress id="progressBar2" value="0" max="100" style="width:300px;"></progress>
+            <small id="status2"></small>
+            <p id="loaded_n_total2"></p>
+          </form>
+          
+        </div>
+
+        <div class="row g-2" id="photoDespues">
+          <div id="cargaPhotosDespues"></div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
       </div>
     </div>
   </div>
@@ -489,12 +479,12 @@
       <div class="modal-body">
         <div class="row g-2">
           <div class="col-sm-12 col-md-12">
-            <img src="../img/portafolio/injuventud_06.jpeg" class="w-100" alt="">
+            <img class="w-100" alt="" src="" id="inside">
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
       </div>
     </div>
   </div>

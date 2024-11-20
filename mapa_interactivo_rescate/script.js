@@ -85,3 +85,67 @@ function abrirOffcanvas() {
   }
 
   // datos de consulta
+  function modalAntes(id,val){
+    $("#modalAntes").modal("show");
+    var idMun = id;
+    var valor = val;
+
+    document.getElementById("idAntes").value = idMun;
+    document.getElementById("evAntes").value = valor;
+
+    photosAntes();
+  }
+
+function photosAntes(){
+
+    var idMun = document.getElementById("idAntes").value;
+    var valor = document.getElementById("evAntes").value;
+
+    $.ajax({
+        type: "POST",
+        url: "admin/query/modalAntesFront.php",
+        data: {
+            idMun: idMun,
+            valor: valor
+            },
+        dataType: "html",
+        success: function(data){
+            $('#cargaPhotosAntes').fadeIn(1000).html(data);
+      
+        }
+    });  
+}
+function modalDespues(id,val){
+    $("#modalDespues").modal("show");
+    var idMun = id;
+    var valor = val;
+
+    document.getElementById("idDespues").value = idMun;
+    document.getElementById("evDespues").value = valor;
+
+    photosDespues();
+  }
+
+  function photosDespues(){
+
+    var idMun = document.getElementById("idDespues").value;
+    var valor = document.getElementById("evDespues").value;
+
+    $.ajax({
+        type: "POST",
+        url: "admin/query/modalDespuesFront.php",
+        data: {
+            idMun: idMun,
+            valor: valor
+            },
+        dataType: "html",
+        success: function(data){
+            $('#cargaPhotosDespues').fadeIn(1000).html(data);
+      
+        }
+    });  
+}
+function inside(imagen){
+    $("#modalInside").modal("show");
+    document.getElementById("inside").setAttribute("src", "../docs/"+imagen+"");
+  }
