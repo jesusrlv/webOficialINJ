@@ -5,17 +5,15 @@ require('qc.php');
 
     $sqlContarMunicipios = "SELECT m.id_db AS municipio, COUNT(e.id) AS cantidad_espacios_intervenidos FROM municipio m LEFT JOIN espacio e ON m.id = e.municipio GROUP BY m.municipio";
     $resultado = $conn->query($sqlContarMunicipios);
-    while ($row = $resultado ->fetch_assoc()) {
-        echo json_encode(array(
+    
+    $data = []; // Array para almacenar los resultados.
 
-        ))
-
-    echo json_encode(array(
-        'success' => 1,
-        'info'=>$info,
-        'poblacion'=>$poblacion,
-        'idMun'=>$idMun,
-        'contar'=>$contar,
-        'sumaBeneficiarios'=>$sumaBeneficiarios
-    ));
+    if ($resultado) {
+        while ($row = $resultado->fetch_assoc()) {
+            $data[] = $row; // Agregar cada fila al array.
+        }
+        echo json_encode(['success' => true, 'data' => $data]); // Devolver los datos en formato JSON.
+    } else {
+        echo json_encode(['success' => false, 'error' => $conn->error]); // Devolver error si la consulta falla.
+    }
 ?>
