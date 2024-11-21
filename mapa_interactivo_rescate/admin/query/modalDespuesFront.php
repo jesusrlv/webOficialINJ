@@ -10,7 +10,7 @@
         $imagen = $row['ruta'];
         echo '
          <div class="col-sm-12 col-md-3 text-center position-relative">
-            <img src="docs/'.$row['ruta'].'" class="img-thumbnail h-100" alt="" onclick="inside(\''.$imagen.'\')">
+            <img src="docs/'.$row['ruta'].'" class="img-thumbnail preview-img" alt="" onclick="inside(\''.$imagen.'\')">
 
         </div>
         ';

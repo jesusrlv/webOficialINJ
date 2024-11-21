@@ -112,6 +112,13 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      .preview-img {
+          width: 200px; /* Ajusta al tamaño deseado */
+          height: 200px; /* Ajusta al tamaño deseado */
+          object-fit: cover; /* Recorta la imagen para que encaje */
+          object-position: center; /* Centra el recorte */
+          border-radius: 5px; /* Opcional: da un borde redondeado */
+      }
     </style>
 
     
@@ -403,7 +410,7 @@
       <div class="modal-body">
 
         <div class="container">
-          <h3></h3>
+          <h5 class="text-dark">Galería del espacio antes de ser intervenido</h5>
           <input type="text" id="idAntes" hidden>
           <input type="text" id="evAntes" hidden>
           
@@ -432,7 +439,7 @@
       <div class="modal-body">
 
         <div class="container">
-          <h3></h3>
+          <h5 class="text-dark">Galería del espacio después de ser intervenido</h5>
           <input type="text" id="idDespues" hidden>
           <input type="text" id="evDespues" hidden>
           
