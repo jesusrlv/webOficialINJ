@@ -150,3 +150,14 @@ function inside(imagen){
     $("#modalInside").modal("show");
     document.getElementById("inside").setAttribute("src", "docs/"+imagen+"");
   }
+
+  function DatosGenerales(){
+    $.ajax({
+      type: "POST",
+        url: "admin/query/datosGenerales.php",
+        dataType: "json",
+        success: function(data){
+        }
+      });
+
+  }
