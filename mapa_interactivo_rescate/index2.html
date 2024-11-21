@@ -119,6 +119,16 @@
           object-position: center; /* Centra el recorte */
           border-radius: 5px; /* Opcional: da un borde redondeado */
       }
+      @media (max-width: 575.98px) {
+      /* Estilos para celulares pequeños */
+        .preview-img {
+            width: 300px; /* Ajusta al tamaño deseado */
+            height: 300px  ; /* Ajusta al tamaño deseado */
+            object-fit: cover; /* Recorta la imagen para que encaje */
+            object-position: center; /* Centra el recorte */
+            border-radius: 5px; /* Opcional: da un borde redondeado */
+        } 
+      }
     </style>
 
     
@@ -176,11 +186,19 @@
   </header>
   
   <main class="px-3">
+    <div class="row">
+      <div class="col-8">
+
+      </div>
+      <div class="col-4">
+        
+      </div>
+    </div>
     <div class="alert alert-primary mt-3" role="alert" id="textoMin">
       Municipio: <span id="municipioTl"></span>
     </div>
     
-    <div class="container">
+    <div class="container contenedorGeneral" id="">
       <svg id="mapa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 3995.94 5067.46">
           
           <path id="melchorOcampo" data-name="Melchor Ocampo" class="cls-14" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"

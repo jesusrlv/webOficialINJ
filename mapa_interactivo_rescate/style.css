@@ -12,6 +12,12 @@ body{
     padding: 10px;
 }
 
+.contenedorGeneral{
+    width: 60vh;
+    height: auto;
+    padding: 10px;
+}
+
 .container path {
     /* fill:#850707d5;
     stroke: #ea7d2a; */
@@ -74,6 +80,7 @@ body{
         padding: 0px;
         margin: 0;
     }
+   
     #textoMin{
         font-size: 12px;
     }
