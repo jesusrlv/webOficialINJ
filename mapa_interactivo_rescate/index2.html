@@ -403,24 +403,14 @@
       <div class="modal-body">
 
         <div class="container">
-          <h3>¿Qué evidencia deseas agregar?</h3>
-          <form id="upload_form" enctype="multipart/form-data" method="post">
-            <input type="text" id="idAntes" hidden>
-            <input type="text" id="evAntes" hidden>
-            <div class="input-group mb-3">
-              <input type="file" id="file1" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-image-fill"></i></span>
-              <button type="button" class="btn btn-primary" onclick="uploadFileAntes()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
-            </div>
-            <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
-            <small id="status"></small>
-            <p id="loaded_n_total"></p>
-          </form>
+          <h3></h3>
+          <input type="text" id="idAntes" hidden>
+          <input type="text" id="evAntes" hidden>
           
         </div>
 
         <div class="row g-2" id="cargaPhotosAntes">
-          <div id="cargaPhotosAntes"></div>
+          <!-- <div id="cargaPhotosAntes"></div> -->
         </div>
         
       </div>
@@ -442,24 +432,14 @@
       <div class="modal-body">
 
         <div class="container">
-          <h3>¿Qué evidencia deseas agregar?</h3>
-          <form id="upload_form" enctype="multipart/form-data" method="post">
-            <input type="text" id="idDespues" hidden>
-            <input type="text" id="evDespues" hidden>
-            <div class="input-group mb-3">
-              <input type="file" id="file2" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" accept="image/*">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-image-fill"></i></span>
-              <button type="button" class="btn btn-primary" onclick="uploadFileDespues()"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
-            </div>
-            <progress id="progressBar2" value="0" max="100" style="width:300px;"></progress>
-            <small id="status2"></small>
-            <p id="loaded_n_total2"></p>
-          </form>
+          <h3></h3>
+          <input type="text" id="idDespues" hidden>
+          <input type="text" id="evDespues" hidden>
           
         </div>
 
-        <div class="row g-2" id="photoDespues">
-          <div id="cargaPhotosDespues"></div>
+        <div class="row g-2" id="cargaPhotosDespues">
+          <!-- <div id="cargaPhotosDespues"></div> -->
         </div>
       </div>
       <div class="modal-footer">
@@ -468,6 +448,7 @@
     </div>
   </div>
 </div>
+
 <!-- Modal inside -->
 <div class="modal fade bg-dark" id="modalInside" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">

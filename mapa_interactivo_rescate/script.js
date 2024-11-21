@@ -115,6 +115,7 @@ function photosAntes(){
         }
     });  
 }
+
 function modalDespues(id,val){
     $("#modalDespues").modal("show");
     var idMun = id;
@@ -147,5 +148,5 @@ function modalDespues(id,val){
 }
 function inside(imagen){
     $("#modalInside").modal("show");
-    document.getElementById("inside").setAttribute("src", "../docs/"+imagen+"");
+    document.getElementById("inside").setAttribute("src", "docs/"+imagen+"");
   }

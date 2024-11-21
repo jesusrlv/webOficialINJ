@@ -257,35 +257,41 @@ function editarDatos(id){
 
 function deleteImage(idImg) {
     var id = idImg;
-    $.ajax({
-        type: "POST",
-        url: "query/deleteImage.php",
-        data: {
-            id: id
-            },
-        success: function(data){
-            var jsonData = JSON.parse(JSON.stringify(data));
-            var success = jsonData.success;
-            if(success = 1){
-                Swal.fire({
-                    icon: "success",
-                    title: "Imagen eliminada",
-                    text: "La imagen ha sido eliminada exitosamente",
-                    footer: "INJUVENTD"
-                }).then(function(){
-                    photosAntes();
-                    photosDespues();
-                });
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Error al eliminar la imagen",
-                    text: "Hubo un error al eliminar la imagen",
-                    footer: "INJUVENTD"
-                });
+    if (confirm("¿Estás seguro de que deseas eliminar la imagen?")) {
+
+        $.ajax({
+            type: "POST",
+            url: "query/deleteImage.php",
+            data: {
+                id: id
+                },
+            success: function(data){
+                var jsonData = JSON.parse(JSON.stringify(data));
+                var success = jsonData.success;
+                if(success = 1){
+                    Swal.fire({
+                        icon: "success",
+                        title: "Imagen eliminada",
+                        text: "La imagen ha sido eliminada exitosamente",
+                        footer: "INJUVENTD"
+                    }).then(function(){
+                        photosAntes();
+                        photosDespues();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error al eliminar la imagen",
+                        text: "Hubo un error al eliminar la imagen",
+                        footer: "INJUVENTD"
+                    });
+                }
             }
-        }
-    });
+        });
+    } else {
+        // Si el usuario hace clic en "Cancelar", no hacer nada
+        console.log("Cancelado");
+    }
 }
 
 function deleteEvidencia(ev){
