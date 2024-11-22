@@ -151,13 +151,39 @@ function inside(imagen){
     document.getElementById("inside").setAttribute("src", "docs/"+imagen+"");
   }
 
-  function DatosGenerales(){
+  function datosGenerales(){
     $.ajax({
       type: "POST",
-        url: "admin/query/datosGenerales.php",
-        dataType: "json",
-        success: function(data){
-        }
-      });
+      url: "admin/query/datosGenerales.php", // Cambia esto por la ruta de tu script PHP
+      dataType: "json",
+      success: function(data) {
+        var jsonData = JSON.parse(data);
+        // var jsonData = JSON.parse(JSON.stringify(data));
+        // console.log('Respuesta JSON:', jsonData);
+
+        if (Array.isArray(jsonData)) {
+          console.log('Número de elementos en el array:', jsonData.length);
+  
+          // Iterar sobre cada elemento en el array
+          for (var i = 0; i < jsonData.length; i++) {
+              var municipios = jsonData[i];
+              var mun = municipios.municipio;
+              var espacios = municipios.cantidad_espacios_intervenidos;
+              // var color = usuario.responsable_color;
+              // var dia = usuario.dia;
+              // var mes = usuario.mes;
+              // var annio = usuario.anno;
+  
+              console.log('municipio:', mun);
+              console.log('Número de espacios:', espacios);
+              // console.log('Color:', color);
+  
+              // Puedes hacer lo que necesites con cada usuario aquí
+              // Por ejemplo, puedes agregar etiquetas HTML a algún elemento en tu página
+              // $('#datosNm' + dia).append('<span class="badge me-1 rounded-pill" style="background:'+color+'">'+actividad+'</span>');
+          }
+        } 
+      }
+  });
 
   }
