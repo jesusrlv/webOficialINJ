@@ -157,15 +157,16 @@ function inside(imagen){
       url: "admin/query/datosGenerales.php", // Cambia esto por la ruta de tu script PHP
       dataType: "json",
       success: function(data) {
-        var jsonData = JSON.parse(data);
-        // var jsonData = JSON.parse(JSON.stringify(data));
-        // console.log('Respuesta JSON:', jsonData);
+        // var jsonData = JSON.parse(data);
+        var jsonData = JSON.parse(JSON.stringify(data));
+        console.log('Respuesta JSON:', jsonData);
 
         if (Array.isArray(jsonData)) {
           console.log('Número de elementos en el array:', jsonData.length);
   
           // Iterar sobre cada elemento en el array
           for (var i = 0; i < jsonData.length; i++) {
+            console.log("Si llegada el elemento");
               var municipios = jsonData[i];
               var mun = municipios.municipio;
               var espacios = municipios.cantidad_espacios_intervenidos;
