@@ -160,7 +160,9 @@ function inside(imagen){
         // var jsonData = JSON.parse(data);
         var jsonData = JSON.parse(JSON.stringify(data));
         console.log('Respuesta JSON:', jsonData);
-
+        var total_espacios = jsonData.total_espacios;
+        console.log('Totalespacios:', total_espacios);
+        
         if (Array.isArray(jsonData)) {
           console.log('Número de elementos en el array:', jsonData.length);
   
@@ -182,8 +184,19 @@ function inside(imagen){
               // Puedes hacer lo que necesites con cada usuario aquí
               // Por ejemplo, puedes agregar etiquetas HTML a algún elemento en tu página
               // $('#datosNm' + dia).append('<span class="badge me-1 rounded-pill" style="background:'+color+'">'+actividad+'</span>');
+              if(espacios >0){
+                document.getElementById('mun').setAttribute('class', 'bg-danger');
+              }
+              else{
+                document.getElementById('mun').setAttribute('class', 'bg-success');
+              }
           }
         } 
+      },
+      error: function(xhr, status, error) {
+          console.error('Error en AJAX:', error);
+          console.log('Estado:', status);
+          console.log('Respuesta del servidor:', xhr.responseText);
       }
   });
 

@@ -16,10 +16,14 @@ require('qc.php');
         while ($row = $resultado->fetch_assoc()) {
             $data[] = $row; // Agregar cada fila al array.
         }
-        echo json_encode(['success' => 1, 
+        echo json_encode(array('success' => 1, 
         'data' => $data,
-        'total_espacios' => $total_espacios]
-    ); // Devolver los datos en formato JSON.
+        'total_espacios' => $total_espacios
+    )); // Devolver los datos en formato JSON.
+    //     echo json_encode(['success' => 1, 
+    //     'data' => $data,
+    //     'total_espacios' => $total_espacios]
+    // ); // Devolver los datos en formato JSON.
     } else {
         echo json_encode(['success' => false, 'error' => $conn->error]); // Devolver error si la consulta falla.
     }
