@@ -30,7 +30,7 @@ function mostrarNombre(event) {
 
               document.getElementById('datosMunicipio').innerHTML = info;
               document.getElementById('contadorMunicipio').innerHTML = contar;
-              document.getElementById('poblacionMunicipio').innerHTML = poblacion;
+              document.getElementById('municipioDato').innerHTML = contar;
               document.getElementById('poblacionMunicipio').innerHTML = poblacion;
               document.getElementById('beneficioriosMunicipio').innerHTML = sumaBeneficiarios;
 
@@ -166,23 +166,6 @@ function inside(imagen){
         if (Array.isArray(jsonData)) {
           console.log('Número de elementos en el array:', jsonData.length);
   
-          // Iterar sobre cada elemento en el array
-          // for (var i = 0; i < jsonData.length; i++) {
-          //   console.log("Si llegada el elemento");
-          //     var municipios = jsonData[i];
-          //     var mun = municipios.municipio;
-          //     var espacios = municipios.cantidad_espacios_intervenidos;
-              
-          //     console.log('municipio:', mun);
-          //     console.log('Número de espacios:', espacios);
-  
-          //     if(espacios > 0 || espacios != null){
-          //       document.getElementById(''+mun+'').setAttribute('class', 'bg-danger');
-          //     }
-          //     else{
-          //       document.getElementById(mun).setAttribute('class', 'bg-success');
-          //     }
-          // }
           for (var i = 0; i < jsonData.length; i++) {
             var municipios = jsonData[i];
             var mun = municipios.municipio; // El id del elemento
@@ -204,9 +187,11 @@ function inside(imagen){
             if (elemento) {
                 // Cambia el color según la condición
                 if (espacios > 0 ) {
-                    elemento.style.fill = "red"; // Color para más de 0 espacios
+                    elemento.style.fill = "#99e7ff"; // Color para más de 0 espacios
+                    elemento.style.stroke = "#004f67"; // Color para más de 0 espacios
                 } else {
                     elemento.style.fill = "#004f67"; // Color para 0 espacios
+                    elemento.style.stroke = "#99e7ff"; // Color para 0 espacios
                 }
             } else {
                 console.error(`Elemento con ID "${mun}" no encontrado en el DOM.`);
