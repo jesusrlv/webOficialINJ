@@ -165,13 +165,47 @@ function inside(imagen){
         
         if (Array.isArray(jsonData)) {
           console.log('Número de elementos en el array:', jsonData.length);
-  
+          var espacios, espaciosTotal, porcentaje;
+      
+          // for (var i = 0; i < jsonData.length; i++) {
+          //   var municipios2 = jsonData[i];
+          //   if (municipios2.cantidad_espacios_intervenidos == null){
+          //     espacios = 0;
+              
+          //   }
+          //   else{
+          //     espacios = municipios2.cantidad_espacios_intervenidos; // Otra información asociada
+          //   }
+          //   espaciosTotal = espaciosTotal + espacios; 
+          // }
+          let espaciosTotal2 = 0; // Inicializamos la variable
+
+          for (var i = 0; i < jsonData.length; i++) {
+              var municipios2 = jsonData[i];
+              let espacios2; // Variable para almacenar los espacios actuales del municipio
+
+              if (municipios2.cantidad_espacios_intervenidos == null) {
+                  espacios2 = 0;
+              } else {
+                espacios2 = parseInt(municipios2.cantidad_espacios_intervenidos, 10); // Usar parseFloat si hay decimales    
+              }
+
+              // Sumar al total
+              espaciosTotal2 = espaciosTotal2 + espacios2; // Suma correctamente
+          }
+
+          console.log('El total de espacios intervenidos es:', espaciosTotal2);
+
           for (var i = 0; i < jsonData.length; i++) {
             var municipios = jsonData[i];
+
+            // porcentajes
+            var porcentaje = 0;
+
             var mun = municipios.municipio; // El id del elemento
-            var espaciosIntervenidos;
             if (municipios.cantidad_espacios_intervenidos == null){
-              espaciosIntervenidos = 0;
+              espacios = 0;
+              
             }
             else{
               espacios = municipios.cantidad_espacios_intervenidos; // Otra información asociada
@@ -182,6 +216,9 @@ function inside(imagen){
         
             // Busca el elemento en el DOM
             var elemento = document.getElementById(mun);
+
+            porcentaje = (espacios * 100)/(espaciosTotal2);
+            console.log(porcentaje); 
         
             // Verifica si el elemento existe antes de modificarlo
             if (elemento) {
