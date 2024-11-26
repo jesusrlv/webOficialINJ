@@ -160,37 +160,59 @@ function inside(imagen){
         // var jsonData = JSON.parse(data);
         var jsonData = JSON.parse(JSON.stringify(data));
         console.log('Respuesta JSON:', jsonData);
-        var total_espacios = jsonData.total_espacios;
-        console.log('Totalespacios:', total_espacios);
+        // var total_espacios = jsonData.total_espacios;
+        // console.log('Totalespacios:', total_espacios);
         
         if (Array.isArray(jsonData)) {
           console.log('Número de elementos en el array:', jsonData.length);
   
           // Iterar sobre cada elemento en el array
+          // for (var i = 0; i < jsonData.length; i++) {
+          //   console.log("Si llegada el elemento");
+          //     var municipios = jsonData[i];
+          //     var mun = municipios.municipio;
+          //     var espacios = municipios.cantidad_espacios_intervenidos;
+              
+          //     console.log('municipio:', mun);
+          //     console.log('Número de espacios:', espacios);
+  
+          //     if(espacios > 0 || espacios != null){
+          //       document.getElementById(''+mun+'').setAttribute('class', 'bg-danger');
+          //     }
+          //     else{
+          //       document.getElementById(mun).setAttribute('class', 'bg-success');
+          //     }
+          // }
           for (var i = 0; i < jsonData.length; i++) {
-            console.log("Si llegada el elemento");
-              var municipios = jsonData[i];
-              var mun = municipios.municipio;
-              var espacios = municipios.cantidad_espacios_intervenidos;
-              // var color = usuario.responsable_color;
-              // var dia = usuario.dia;
-              // var mes = usuario.mes;
-              // var annio = usuario.anno;
-  
-              console.log('municipio:', mun);
-              console.log('Número de espacios:', espacios);
-              // console.log('Color:', color);
-  
-              // Puedes hacer lo que necesites con cada usuario aquí
-              // Por ejemplo, puedes agregar etiquetas HTML a algún elemento en tu página
-              // $('#datosNm' + dia).append('<span class="badge me-1 rounded-pill" style="background:'+color+'">'+actividad+'</span>');
-              if(espacios >0){
-                document.getElementById('mun').setAttribute('class', 'bg-danger');
-              }
-              else{
-                document.getElementById('mun').setAttribute('class', 'bg-success');
-              }
-          }
+            var municipios = jsonData[i];
+            var mun = municipios.municipio; // El id del elemento
+            var espaciosIntervenidos;
+            if (municipios.cantidad_espacios_intervenidos == null){
+              espaciosIntervenidos = 0;
+            }
+            else{
+              espacios = municipios.cantidad_espacios_intervenidos; // Otra información asociada
+            }
+            
+            console.log('Municipio:', mun);
+            console.log('Número de espacios:', espacios);
+        
+            // Busca el elemento en el DOM
+            var elemento = document.getElementById(mun);
+        
+            // Verifica si el elemento existe antes de modificarlo
+            if (elemento) {
+                // Cambia el color según la condición
+                if (espacios > 0 ) {
+                    elemento.style.fill = "red"; // Color para más de 0 espacios
+                } else {
+                    elemento.style.fill = "#004f67"; // Color para 0 espacios
+                }
+            } else {
+                console.error(`Elemento con ID "${mun}" no encontrado en el DOM.`);
+            }
+        }
+        
         } 
       },
       error: function(xhr, status, error) {
