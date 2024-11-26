@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-11-2024 a las 08:48:40
+-- Tiempo de generación: 26-11-2024 a las 20:24:19
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,24 +32,9 @@ CREATE TABLE `espacio` (
   `nombre_espacio` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `municipio` int(11) NOT NULL,
   `fecha_intervencion` date NOT NULL,
-  `ubicacion` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `ubicacion` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `beneficiarios` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `espacio`
---
-
-INSERT INTO `espacio` (`id`, `nombre_espacio`, `municipio`, `fecha_intervencion`, `ubicacion`, `beneficiarios`) VALUES
-(1, 'Espacio prueba', 3, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
-(2, 'Espacio prueba', 2, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
-(3, 'Espacio prueba', 2, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
-(4, 'Espacio prueba', 8, '2024-11-01', 'sdsdfasfsfsdfsdfsd', 0),
-(5, 'dsds', 11, '2024-11-21', 'dsdsd', 0),
-(6, 'dsds', 9, '2024-11-21', 'dsdsd', 0),
-(7, 'dsdsd', 3, '2024-11-05', 'ds', 0),
-(8, 'dsdsd', 7, '2024-11-05', 'ds', 0),
-(9, 's', 1, '2024-11-14', 'ss', 0);
 
 -- --------------------------------------------------------
 
@@ -64,13 +49,6 @@ CREATE TABLE `fotos` (
   `tipo_foto` int(11) NOT NULL,
   `complemento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `fotos`
---
-
-INSERT INTO `fotos` (`id`, `ruta`, `id_ext`, `tipo_foto`, `complemento`) VALUES
-(2, '9_1_2.jpg', 9, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -91,64 +69,64 @@ CREATE TABLE `municipio` (
 --
 
 INSERT INTO `municipio` (`id`, `municipio`, `info`, `poblacion`, `id_db`) VALUES
-(1, 'Apozol', 'Apozol representa el 0.4% de la población total del estado de Zacatecas. Con una superficie de 292.8 km2 y una densidad de población de 21.4 hab./km2, este municipio tiene una edad mediana de 32 años. La mitad de la población tiene 32 años o menos.', 0, ''),
-(2, 'Apulco', '', 0, ''),
-(3, 'Atolinga', '', 0, ''),
-(4, 'Benito Juárez', '', 0, ''),
-(5, 'Calera', '', 0, ''),
-(6, 'Cañitas de Felipe Pescador', '', 0, ''),
-(7, 'Concepción del Oro', '', 0, ''),
-(8, 'Cuauhtémoc', '', 0, ''),
-(9, 'Chalchihuites', '', 0, ''),
-(10, 'Fresnillo', '', 0, ''),
-(11, 'Trinidad García de la Cadena', '', 0, ''),
-(12, 'Genaro Codina', '', 0, ''),
-(13, 'General Enrique Estrada', '', 0, ''),
-(14, 'General Francisco R. Murguía', '', 0, ''),
-(15, 'El Plateado de Joaquín Amaro', '', 0, ''),
-(16, 'General Pánfilo Natera', '', 0, ''),
-(17, 'Guadalupe', '', 0, ''),
-(18, 'Huanusco', '', 0, ''),
-(19, 'Jalpa', '', 0, ''),
-(20, 'Jerez', '', 0, ''),
-(21, 'Jiménez del Teul', '', 0, ''),
-(22, 'Juan Aldama', '', 0, ''),
-(23, 'Juchipila', '', 0, ''),
-(24, 'Loreto', '', 0, ''),
-(25, 'Luis Moya', '', 0, ''),
-(26, 'Mazapil', '', 0, ''),
-(27, 'Melchor Ocampo', '', 0, ''),
-(28, 'Mezquital del Oro', '', 0, ''),
-(29, 'Miguel Auza', '', 0, ''),
-(30, 'Momax', '', 0, ''),
-(31, 'Monte Escobedo', '', 0, ''),
-(32, 'Morelos', '', 0, ''),
-(33, 'Moyahua de Estrada', '', 0, ''),
-(34, 'Nochistlán de Mejía', '', 0, ''),
-(35, 'Noria de Ángeles', '', 0, ''),
-(36, 'Ojocaliente', '', 0, ''),
-(37, 'Pánuco', '', 0, ''),
-(38, 'Pinos', '', 0, ''),
-(39, 'Río Grande', '', 0, ''),
-(40, 'Sain Alto', '', 0, ''),
-(41, 'El Salvador', '', 0, ''),
-(42, 'Sombrerete', '', 0, ''),
-(43, 'Susticacán', '', 0, ''),
-(44, 'Tabasco', '', 0, ''),
-(45, 'Tepechitlán', '', 0, ''),
-(46, 'Tepetongo', '', 0, ''),
-(47, 'Teúl de González Ortega', '', 0, ''),
-(48, 'Tlaltenango de Sánchez Román', '', 0, ''),
-(49, 'Valparaíso', '', 0, ''),
-(50, 'Vetagrande', '', 0, ''),
-(51, 'Villa de Cos', '', 0, ''),
-(52, 'Villa García', '', 0, ''),
-(53, 'Villa González Ortega', '', 0, ''),
-(54, 'Villa Hidalgo', '', 0, ''),
-(55, 'Villanueva', '', 0, ''),
-(56, 'Zacatecas', '', 0, ''),
-(57, 'Trancoso', '', 0, ''),
-(58, 'Santa María de la Paz', '', 0, '');
+(1, 'Apozol', 'Localidad con tradiciones agrícolas y clima cálido, conocida por sus balnearios y paisajes.', 4238, 'apozol'),
+(2, 'Apulco', 'Municipio pequeño dedicado principalmente a la agricultura y ganadería.', 4942, 'apulco'),
+(3, 'Atolinga', 'Localidad con tradición en la producción de alimentos locales y actividades ganaderas.', 2277, 'atolinga'),
+(4, 'Benito Juárez', 'Municipio agrícola con comunidades rurales y actividades tradicionales.', 4493, 'benitoJuarez'),
+(5, 'Calera', 'Zona industrial y comercial con importancia logística en Zacatecas.', 45759, 'calera'),
+(6, 'Cañitas de Felipe Pescador', 'Municipio agrícola con énfasis en la producción de frijol y maíz.', 8255, 'canitasdeFelipePescador'),
+(7, 'Concepción del Oro', 'Región minera con importancia histórica en la extracción de metales preciosos.', 12115, 'concepciondelOro'),
+(8, 'Cuauhtémoc', 'Localidad agrícola y ganadera que contribuye a la economía rural del estado.', 13466, 'ciudadCuauhtemoc'),
+(9, 'Chalchihuites', 'Municipio con una rica historia minera y atractivos arqueológicos.', 10086, 'chalchihuites'),
+(10, 'Fresnillo', 'Centro minero más importante del estado y el municipio más poblado de Zacatecas.', 240532, 'fresnillo'),
+(11, 'Trinidad García de la Cadena', 'Región montañosa con economía basada en agricultura y ganadería.', 3362, 'trinidadGarciadelaCadena'),
+(12, 'Genaro Codina', 'Municipio con cultura tradicional y producción agrícola.', 8168, 'genaroCodina'),
+(13, 'General Enrique Estrada', 'Pequeño municipio agrícola con actividades ganaderas complementarias.', 6644, 'enriqueEstrada'),
+(14, 'General Francisco R. Murguía', 'Zona agrícola importante con recursos hídricos para el riego.', 20191, 'franciscoRMurguia'),
+(15, 'El Plateado de Joaquín Amaro', 'Municipio con historia minera y tradición cultural.', 1579, 'joaquinAmaro'),
+(16, 'General Pánfilo Natera', 'Región agrícola destacada por la producción de chile seco.', 23526, 'generalPanfiloNatera'),
+(17, 'Guadalupe', 'Zona conurbada con Zacatecas capital, destaca por su crecimiento urbano y servicios.', 211740, 'guadalupe'),
+(18, 'Huanusco', 'Región agrícola con tradición en la producción de caña de azúcar.', 4547, 'huanusco'),
+(19, 'Jalpa', 'Municipio con actividades agrícolas y una rica herencia cultural.', 25296, 'jalpa'),
+(20, 'Jerez', 'Pueblo Mágico famoso por su música, cultura y arquitectura colonial.', 59910, 'jerez'),
+(21, 'Jiménez del Teul', 'Pequeño municipio rural con actividades agrícolas y ganaderas.', 4465, 'jimenezdelTeul'),
+(22, 'Juan Aldama', 'Región histórica con economía agrícola y ganadera.', 19749, 'juanAldama'),
+(23, 'Juchipila', 'Municipio con clima cálido, dedicado principalmente a la agricultura.', 12251, 'juchipila'),
+(24, 'Loreto', 'Región con actividades comerciales y agrícolas destacadas.', 53709, 'loreto'),
+(25, 'Luis Moya', 'Localidad agrícola con tradición en la producción de maíz y frijol.', 13184, 'luisMoya'),
+(26, 'Mazapil', 'Municipio con extensas áreas mineras y proyectos industriales.', 17774, 'mazapil'),
+(27, 'Melchor Ocampo', 'Pequeño municipio rural con comunidades tradicionales.', 2736, 'melchorOcampo'),
+(28, 'Mezquital del Oro', 'Localidad montañosa con actividades ganaderas y forestales.', 2451, 'mezquitaldelOro'),
+(29, 'Miguel Auza', 'Región agrícola importante con sistemas de riego avanzados.', 23713, 'miguelAuza'),
+(30, 'Momax', 'Municipio pequeño con tradición agrícola y ganadera.', 2446, 'momax'),
+(31, 'Monte Escobedo', 'Localidad rural con producción agrícola y recursos naturales.', 8683, 'monteEscobedo'),
+(32, 'Morelos', 'Región en crecimiento, cercana a la capital del estado, con economía diversificada.', 13207, 'morelos'),
+(33, 'Moyahua de Estrada', 'Municipio agrícola con tradiciones culturales significativas.', 4530, 'moyahua'),
+(34, 'Nochistlán de Mejía', 'Pueblo Mágico con importante patrimonio histórico y arquitectónico.', 27945, 'nochistlan'),
+(35, 'Noria de Ángeles', 'Localidad minera y agrícola con historia colonial.', 16284, 'noriadeAngeles'),
+(36, 'Ojocaliente', 'Municipio agrícola y ganadero con gran historia.', 44144, 'ojocaliente'),
+(37, 'Pánuco', 'Pequeño municipio cercano a la capital con actividades rurales.', 17577, 'panuco'),
+(38, 'Pinos', 'Región histórica con arquitectura colonial y actividad agrícola.', 72241, 'pinos'),
+(39, 'Río Grande', 'Municipio agrícola con fuerte actividad económica regional.', 64535, 'rioGrande'),
+(40, 'Sain Alto', 'Región rural con economía basada en agricultura y ganadería.', 21844, 'sainAlto'),
+(41, 'El Salvador', 'Pequeño municipio con economía rural y tradiciones culturales.', 2509, 'elSalvador'),
+(42, 'Sombrerete', 'Región minera y agrícola con patrimonio histórico y arquitectónico.', 63665, 'sombrerete'),
+(43, 'Susticacán', 'Municipio más pequeño, con actividades rurales y tranquilidad.', 1365, 'susticacan'),
+(44, 'Tabasco', 'Región agrícola con tradición en la producción de caña de azúcar.', 16588, 'tabasco'),
+(45, 'Tepechitlán', 'Municipio rural con tradición agrícola y ganadera.', 8321, 'tepechitlan'),
+(46, 'Tepetongo', 'Localidad con actividades agrícolas y ganaderas complementarias.', 6490, 'tepetongo'),
+(47, 'Teúl de González Ortega', 'Pueblo Mágico con rica tradición cultural y arquitectura colonial.', 5356, 'teuldeGonzalezOrtega'),
+(48, 'Tlaltenango de Sánchez Román', 'Municipio agrícola y ganadero con tradición histórica.', 27302, 'tlaltenango'),
+(49, 'Valparaíso', 'Región extensa con actividades agrícolas, ganaderas y forestales.', 32461, 'valparaiso'),
+(50, 'Vetagrande', 'Municipio cercano a la capital con tradición minera.', 10276, 'vetagrande'),
+(51, 'Villa de Cos', 'Localidad agrícola con grandes extensiones de cultivo.', 34623, 'villadeCos'),
+(52, 'Villa García', 'Municipio agrícola con economía basada en la producción de maíz y chile.', 19525, 'villaGarcia'),
+(53, 'Villa González Ortega', 'Pequeño municipio agrícola y rural con tradiciones culturales.', 13208, 'villaGonzalezOrtega'),
+(54, 'Villa Hidalgo', 'Localidad agrícola con recursos hídricos para la producción.', 19446, 'villaHidalgo'),
+(55, 'Villanueva', 'Región agrícola y ganadera con atractivos culturales.', 31558, 'villanueva'),
+(56, 'Zacatecas', 'Capital del estado, famosa por su arquitectura colonial y patrimonio histórico.', 149607, 'Zacatecas'),
+(57, 'Trancoso', 'Zona cercana a Guadalupe con crecimiento urbano y agrícola.', 20455, 'trancoso'),
+(58, 'Santa María de la Paz', 'Municipio pequeño y tranquilo con actividades rurales.', 2767, 'santaMariadelaPaz');
 
 --
 -- Índices para tablas volcadas
@@ -180,13 +158,13 @@ ALTER TABLE `municipio`
 -- AUTO_INCREMENT de la tabla `espacio`
 --
 ALTER TABLE `espacio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `municipio`
