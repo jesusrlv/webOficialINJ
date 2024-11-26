@@ -30,10 +30,6 @@ require('qc.php');
         $poblacion = 0;
     }
 
-    // $sql = "SELECT * FROM espacio WHERE id = '$id'";
-    // $resultadoSql = $conn->query($sql);
-    // $row = $resultadoSql->fetch_assoc();
-
     echo json_encode(array(
         'success' => 1,
         'info'=>$info,

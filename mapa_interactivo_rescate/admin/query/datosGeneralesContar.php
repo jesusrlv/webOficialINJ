@@ -20,10 +20,8 @@ require('qc.php');
         'data' => $data,
         'total_espacios' => $total_espacios
     )); // Devolver los datos en formato JSON.
-    //     echo json_encode(['success' => 1, 
-    //     'data' => $data,
-    //     'total_espacios' => $total_espacios]
-    // ); // Devolver los datos en formato JSON.
+    
+    // Devolver los datos en formato JSON.
     } else {
         echo json_encode(['success' => false, 'error' => $conn->error]); // Devolver error si la consulta falla.
     }

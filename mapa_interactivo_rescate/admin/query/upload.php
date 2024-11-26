@@ -11,7 +11,7 @@
     $resultado = $conn->query($sql);
     $filas = $resultado->num_rows;
     if($filas == 0){
-        // if(is_null($row['complemento']) || $row['complemento'] === NULL){
+
         $sumaComplemento = 1;
     }
     else{
@@ -32,7 +32,7 @@ if (!$fileTmpLoc) { // if file not chosen
 
 $archivo_ext=$_FILES['file']['name'];
 $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
-// $namePhoto = uniqid('photoNexus_', true) . '.' . $extension;
+
 $namePhoto = $id.'_'.$tipo.'_'.$sumaComplemento.'.' . $extension;
 
     if(move_uploaded_file($_FILES["file"]["tmp_name"],"../../docs/". $namePhoto )){

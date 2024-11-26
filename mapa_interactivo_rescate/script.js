@@ -167,17 +167,6 @@ function inside(imagen){
           console.log('Número de elementos en el array:', jsonData.length);
           var espacios, espaciosTotal, porcentaje;
       
-          // for (var i = 0; i < jsonData.length; i++) {
-          //   var municipios2 = jsonData[i];
-          //   if (municipios2.cantidad_espacios_intervenidos == null){
-          //     espacios = 0;
-              
-          //   }
-          //   else{
-          //     espacios = municipios2.cantidad_espacios_intervenidos; // Otra información asociada
-          //   }
-          //   espaciosTotal = espaciosTotal + espacios; 
-          // }
           let espaciosTotal2 = 0; // Inicializamos la variable
 
           for (var i = 0; i < jsonData.length; i++) {
