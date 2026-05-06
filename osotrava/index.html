@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--Favicon-->
+<link rel="icon" type="image/png" href="../img/logos/logo_injuventud_0.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conferencia Magistral 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       🎨  ZONA DE PERSONALIZACIÓN — EDITA AQUÍ TODO
+    ═══════════════════════════════════════════════════════ */
+    :root {
+      /* ── IMAGEN DE FONDO ──────────────────────────────── */
+      --bg-imagen:           url('../img/portafolio/oso_trava_01.jpeg');
+      /*  👆 Cambia la ruta por la URL o archivo de tu imagen
+          Ejemplos:
+            url('foto-ponente.jpg')
+            url('https://example.com/imagen.jpg')
+            url('assets/conferencia.webp')
+      */
+      --bg-posicion:         center center;   /* top / center / bottom / "50% 20%" */
+      --bg-tamano:           cover;           /* cover | contain | "100% auto" */
+      --bg-attachment:       fixed;           /* fixed (parallax efecto) | scroll */
+
+      /* ── OVERLAY / VELADO SOBRE LA IMAGEN ────────────── */
+      --overlay-color-1:     rgba(0, 0, 0, 0.72);     /* Capa oscura base */
+      --overlay-color-2:     rgba(10, 20, 40, 0.55);  /* Tinte azul profundo */
+      --overlay-gradiente:   linear-gradient(
+                               160deg,
+                               rgba(0,0,0,0.85) 0%,
+                               rgba(10,20,40,0.6) 50%,
+                               rgba(0,0,0,0.75) 100%
+                             );
+      /* 👆 Ajusta las opacidades para más/menos transparencia sobre tu foto */
+
+      /* ── COLOR DE ACENTO ──────────────────────────────── */
+      --acento:              #c9a84c;         /* Dorado elegante */
+      --acento-suave:        rgba(201,168,76,0.18);
+      --acento-borde:        rgba(201,168,76,0.35);
+
+      /* ── TEXTOS ───────────────────────────────────────── */
+      --texto-blanco:        #f5f2ec;
+      --texto-suave:         rgba(245,242,236,0.62);
+      --texto-muy-suave:     rgba(245,242,236,0.35);
+
+      /* ── NAVBAR ───────────────────────────────────────── */
+      --nav-bg:              rgba(0, 0, 0, 0.0);      /* transparente al inicio */
+      --nav-bg-scroll:       rgba(4, 8, 20, 0.92);    /* oscuro al hacer scroll */
+
+      /* ── TIPOGRAFÍAS ──────────────────────────────────── */
+      --fuente-titulo:       'Cormorant Garamond', serif;
+      --fuente-cuerpo:       'DM Sans', sans-serif;
+
+      /* ── TAMAÑOS ──────────────────────────────────────── */
+      --titulo-size:         clamp(3rem, 7.5vw, 7rem);
+      --subtitulo-size:      clamp(0.95rem, 2vw, 1.2rem);
+
+      /* ── BOTONES ──────────────────────────────────────── */
+      --btn-primario-bg:     #c9a84c;
+      --btn-primario-texto:  #04080f;
+      --btn-outline-borde:   rgba(201,168,76,0.6);
+      --btn-outline-texto:   #c9a84c;
+
+      /* ── DATOS DEL EVENTO (solo visual, edita el HTML) ── */
+      /* Ver sección "Contenido editable" más abajo ↓       */
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--fuente-cuerpo);
+      color: var(--texto-blanco);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      height: 68px;
+      background: var(--nav-bg);
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: var(--nav-bg-scroll);
+      border-color: rgba(201,168,76,0.12);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-logo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--acento);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      border: 1.5px solid var(--acento);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      text-decoration: none;
+      transition: color 0.22s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--acento);
+      transition: width 0.25s;
+    }
+    .nav-links a:hover { color: var(--acento); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-registro {
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      padding: 9px 22px;
+      border: 1px solid var(--acento);
+      border-radius: 2px;
+      color: var(--acento) !important;
+      letter-spacing: 0.12em !important;
+      transition: background 0.22s, color 0.22s !important;
+    }
+    .nav-registro:hover {
+      background: var(--acento) !important;
+      color: #04080f !important;
+    }
+    .nav-registro::after { display: none !important; }
+
+    /* Hamburger */
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .nav-ham span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--acento);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-ham.abierto span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-ham.abierto span:nth-child(2) { opacity: 0; }
+    .nav-ham.abierto span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-movil {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(4,8,20,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 2rem 6% 2.5rem;
+      border-bottom: 1px solid var(--acento-borde);
+      flex-direction: column;
+      gap: 1.6rem;
+      z-index: 199;
+      animation: bajarMenu 0.28s ease;
+    }
+    .nav-movil.abierto { display: flex; }
+    .nav-movil a {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-movil a:hover { color: var(--acento); }
+    @keyframes bajarMenu {
+      from { opacity:0; transform: translateY(-10px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO — IMAGEN DE FONDO + OVERLAY
+    ═══════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Imagen de fondo */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: var(--bg-imagen);
+      background-position: var(--bg-posicion);
+      background-size: var(--bg-tamano);
+      background-attachment: var(--bg-attachment);
+      /* Efecto sutil de zoom en carga */
+      animation: zoomSutil 12s ease-out forwards;
+    }
+    @keyframes zoomSutil {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.00); }
+    }
+
+    /* Overlay degradado */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--overlay-gradiente);
+      z-index: 1;
+    }
+    /* Línea decorativa izquierda */
+    .hero-linea {
+      position: absolute;
+      left: 6%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--acento-borde) 30%, var(--acento-borde) 70%, transparent);
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 1s 0.4s forwards;
+    }
+    /* Esquina decorativa inferior derecha */
+    .hero-esquina {
+      position: absolute;
+      bottom: 60px; right: 6%;
+      width: 100px; height: 100px;
+      border-right: 1px solid var(--acento-borde);
+      border-bottom: 1px solid var(--acento-borde);
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 1s 0.6s forwards;
+    }
+
+    /* CONTENIDO */
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding: 130px 6% 90px calc(6% + 28px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-left {}
+    .hero-right {}
+
+    /* Eyebrow */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: subirFade 0.7s 0.3s forwards;
+    }
+    .eyebrow-line {
+      width: 36px; height: 1px;
+      background: var(--acento);
+    }
+    .eyebrow-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acento);
+    }
+
+    /* Título */
+    .hero-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: var(--titulo-size);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      color: var(--texto-blanco);
+      margin-bottom: 0.3rem;
+      opacity: 0;
+      animation: subirFade 0.8s 0.48s forwards;
+    }
+    .hero-titulo strong {
+      font-weight: 700;
+      font-style: italic;
+      display: block;
+      color: var(--acento);
+    }
+
+    /* Subtítulo del ponente */
+    .hero-ponente {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: subirFade 0.7s 0.62s forwards;
+    }
+    .ponente-sep {
+      width: 20px; height: 1px;
+      background: var(--acento-borde);
+    }
+
+    /* Descripción */
+    .hero-desc {
+      font-size: var(--subtitulo-size);
+      font-weight: 300;
+      color: var(--texto-suave);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 2.6rem;
+      opacity: 0;
+      animation: subirFade 0.7s 0.76s forwards;
+    }
+
+    /* Botones */
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: subirFade 0.7s 0.9s forwards;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 30px;
+      font-family: var(--fuente-cuerpo);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primario {
+      background: var(--btn-primario-bg);
+      color: var(--btn-primario-texto);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.28);
+    }
+    .btn-primario:hover {
+      box-shadow: 0 12px 36px rgba(201,168,76,0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--btn-outline-texto);
+      border: 1px solid var(--btn-outline-borde);
+    }
+    .btn-outline:hover {
+      background: var(--acento-suave);
+    }
+
+    /* ── CARD DERECHA — Info del evento ─────────────── */
+    .evento-card {
+      background: rgba(4,8,20,0.55);
+      border: 1px solid var(--acento-borde);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 2.4rem;
+      position: relative;
+      opacity: 0;
+      animation: subirFade 0.8s 1s forwards;
+    }
+    /* Esquina decorativa */
+    .evento-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px;
+      width: 40px; height: 40px;
+      border-top: 2px solid var(--acento);
+      border-left: 2px solid var(--acento);
+    }
+    .evento-card::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; right: -1px;
+      width: 40px; height: 40px;
+      border-bottom: 2px solid var(--acento);
+      border-right: 2px solid var(--acento);
+    }
+
+    .card-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 1.8rem;
+    }
+
+    .card-dato {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 1.6rem;
+    }
+    .card-dato:last-child { margin-bottom: 0; }
+
+    .dato-icono {
+      width: 36px; height: 36px;
+      border: 1px solid var(--acento-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--acento);
+    }
+    .dato-info {}
+    .dato-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--texto-muy-suave);
+      margin-bottom: 3px;
+    }
+    .dato-valor {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--texto-blanco);
+      line-height: 1.4;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: var(--acento-borde);
+      margin: 1.6rem 0;
+      opacity: 0.5;
+    }
+
+    /* Cupos disponibles */
+    .cupos-bar {
+      margin-top: 0.6rem;
+    }
+    .cupos-texto {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--texto-muy-suave);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .cupos-track {
+      height: 3px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .cupos-fill {
+      height: 100%;
+      width: 100%; /* 👈 Cambia el % según cupos ocupados */
+      background: linear-gradient(90deg, var(--acento), #e8c840);
+      border-radius: 2px;
+      animation: expandBar 1.2s 1.4s ease both;
+    }
+    @keyframes expandBar {
+      from { width: 0; }
+    }
+
+    /* ── LOGOS ─────────────────────────────────── */
+    .hero-logos-wrap {
+      position: absolute;
+      bottom: 36px; left: calc(6% + 28px);
+      z-index: 3;
+      opacity: 0;
+      animation: fadeIn 0.8s 1.3s forwards;
+    }
+    .logos-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--texto-muy-suave);
+      margin-bottom: 10px;
+    }
+    .logos-fila {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      opacity: 0.45;
+      transition: opacity 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .logo-item:hover { opacity: 0.9; transform: translateY(-2px); }
+    .logo-caja {
+      width: 62px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+    /* Si usas imagen real: */
+    .logo-caja img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 5px;
+      filter: brightness(0) invert(1);
+    }
+    .logo-nombre {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texto-muy-suave);
+    }
+
+    /* ── SCROLL HINT ───────────────────────────── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px; right: 6%;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+    .scroll-hint span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--texto-muy-suave);
+      writing-mode: vertical-lr;
+    }
+    .scroll-linea {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--acento-borde), transparent);
+      animation: pulsarLinea 2s infinite;
+    }
+    @keyframes pulsarLinea {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* KEYFRAMES GLOBALES */
+    @keyframes subirFade {
+      from { opacity:0; transform: translateY(20px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 120px 6% 100px;
+      }
+      .hero-right { order: -1; }
+      .hero-desc  { max-width: 100%; }
+      .hero-logos-wrap { left: 6%; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-ham   { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .btn { width: 100%; max-width: 300px; justify-content: center; }
+      .hero-logos-wrap { display: none; }
+      .scroll-hint { display: none; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MODALS
+    ═══════════════════════════════════════════════════════ */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-backdrop.activo {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: #080c18;
+      border: 1px solid var(--acento-borde);
+      width: 100%;
+      max-width: 660px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.32s cubic-bezier(.16,1,.3,1);
+      scrollbar-width: thin;
+      scrollbar-color: var(--acento-borde) transparent;
+    }
+    .modal-backdrop.activo .modal {
+      transform: translateY(0) scale(1);
+    }
+    /* Esquinas decorativas */
+    .modal::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px;
+      width: 36px; height: 36px;
+      border-top: 2px solid var(--acento);
+      border-left: 2px solid var(--acento);
+      pointer-events: none;
+    }
+    .modal::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; right: -1px;
+      width: 36px; height: 36px;
+      border-bottom: 2px solid var(--acento);
+      border-right: 2px solid var(--acento);
+      pointer-events: none;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 2rem 1.2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .modal-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acento);
+      font-weight: 600;
+    }
+    .modal-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--texto-blanco);
+      line-height: 1.1;
+      margin-top: 2px;
+    }
+    .modal-cerrar {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: transparent;
+      cursor: pointer;
+      color: var(--texto-suave);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .modal-cerrar:hover {
+      background: var(--acento-suave);
+      color: var(--acento);
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    /* Ponente */
+    .ponente-perfil {
+      display: flex;
+      gap: 1.6rem;
+      align-items: flex-start;
+      margin-bottom: 1.8rem;
+    }
+    .ponente-avatar {
+      width: 88px; height: 88px;
+      border: 2px solid var(--acento-borde);
+      flex-shrink: 0;
+      background: rgba(201,168,76,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--acento);
+      font-family: var(--fuente-titulo);
+      font-size: 2rem;
+      /* Si tienes foto: reemplaza con <img> dentro */
+    }
+    .ponente-meta {}
+    .ponente-nombre {
+      font-family: var(--fuente-titulo);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--texto-blanco);
+      margin-bottom: 4px;
+    }
+    .ponente-cargo {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--acento);
+      margin-bottom: 8px;
+    }
+    .ponente-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border: 1px solid var(--acento-borde);
+      color: var(--texto-suave);
+    }
+    .modal-texto {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--texto-suave);
+      margin-bottom: 1.2rem;
+    }
+    .modal-divider {
+      height: 1px;
+      background: rgba(201,168,76,0.12);
+      margin: 1.4rem 0;
+    }
+
+    /* Programa */
+    .programa-item {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .programa-item:last-child { border-bottom: none; }
+    .prog-hora {
+      font-family: var(--fuente-titulo);
+      font-size: 1rem;
+      color: var(--acento);
+      min-width: 90px;
+      padding-top: 2px;
+    }
+    .prog-info {}
+    .prog-titulo {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--texto-blanco);
+      margin-bottom: 3px;
+    }
+    .prog-desc {
+      font-size: 0.8rem;
+      color: var(--texto-suave);
+      line-height: 1.55;
+    }
+    .prog-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      padding: 2px 8px;
+      background: var(--acento-suave);
+      border: 1px solid var(--acento-borde);
+      color: var(--acento);
+      margin-top: 5px;
+    }
+
+    /* Sede */
+    .sede-mapa {
+      width: 100%;
+      height: 180px;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--acento-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sede-mapa-placeholder {
+      text-align: center;
+      color: var(--texto-muy-suave);
+    }
+    .sede-mapa-placeholder svg { margin: 0 auto 8px; display: block; }
+    .sede-mapa-placeholder p { font-size: 0.75rem; letter-spacing: 0.1em; }
+    /* Si tienes iframe de Google Maps, reemplaza .sede-mapa por el iframe */
+    .sede-dato {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .sede-dato-icono {
+      color: var(--acento);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .sede-dato-texto {}
+    .sede-dato-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--texto-muy-suave);
+      margin-bottom: 2px;
+    }
+    .sede-dato-valor {
+      font-size: 0.9rem;
+      color: var(--texto-blanco);
+      line-height: 1.5;
+    }
+
+    /* Organizadores */
+    .org-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .org-card {
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .org-card:hover {
+      border-color: var(--acento-borde);
+      background: var(--acento-suave);
+    }
+    .org-logo {
+      width: 48px; height: 32px;
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .org-nombre {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--texto-blanco);
+      margin-bottom: 3px;
+    }
+    .org-rol {
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--acento);
+    }
+    @media (max-width: 480px) {
+      .org-grid { grid-template-columns: 1fr; }
+      .ponente-perfil { flex-direction: column; }
+    }
+
+    /* Registro — formulario */
+    .form-grupo {
+      margin-bottom: 1.2rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--texto-muy-suave);
+      margin-bottom: 6px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--texto-blanco);
+      font-family: var(--fuente-cuerpo);
+      font-size: 0.88rem;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--acento);
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--texto-muy-suave); }
+    .form-textarea { resize: vertical; min-height: 80px; }
+    .form-select option { background: #080c18; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 480px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 1.4rem;
+    }
+    .form-check input[type="checkbox"] {
+      accent-color: var(--acento);
+      width: 15px; height: 15px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .form-check label {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      line-height: 1.5;
+    }
+    .btn-modal-enviar {
+      width: 100%;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <polygon points="8,1 15,5 15,11 8,15 1,11 1,5" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <!-- 👇 Cambia el nombre del evento -->
+      Conferencia Magistral
+    </div>
+
+    <ul class="nav-links">
+      <!-- 👇 Edita los links del menú -->
+      <li><a href="#" onclick="abrirModal('modal-ponente');return false;">Ponente</a></li>
+      <li><a href="#" onclick="abrirModal('modal-programa');return false;">Programa</a></li>
+      <li><a href="#" onclick="abrirModal('modal-sede');return false;">Sede</a></li>
+      <li><a href="#" onclick="abrirModal('modal-organizadores');return false;">Organizadores</a></li>
+      <li><a href="#" onclick="abrirModal('modal-registro');return false;" class="nav-registro">Registrarme</a></li>
+    </ul>
+
+    <div class="nav-ham" id="ham">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="nav-movil" id="nav-movil">
+    <a href="#" onclick="cerrarMovil();abrirModal('modal-ponente');return false;">Ponente</a>
+    <a href="#" onclick="cerrarMovil();abrirModal('modal-programa');return false;">Programa</a>
+    <a href="#" onclick="cerrarMovil();abrirModal('modal-sede');return false;">Sede</a>
+    <a href="#" onclick="cerrarMovil();abrirModal('modal-organizadores');return false;">Organizadores</a>
+    <a href="#" onclick="cerrarMovil();abrirModal('modal-registro');return false;" style="color: var(--acento)!important; font-weight:600;">Registrarme</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+
+    <!-- Imagen de fondo (controlada por --bg-imagen en :root) -->
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <!-- Elementos decorativos -->
+    <div class="hero-linea"></div>
+    <div class="hero-esquina"></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="hero-inner">
+
+      <!-- COLUMNA IZQUIERDA — Texto -->
+      <div class="hero-left">
+
+        <!-- Eyebrow / etiqueta superior -->
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <!-- 👇 Cambia la categoría del evento -->
+          <span class="eyebrow-text">Conferencia Magistral · Edición 2026</span>
+        </div>
+
+        <!-- Título principal -->
+        <h1 class="hero-titulo">
+          <!-- 👇 Edita el título del evento -->
+          OSO<br/>
+          <strong>TRAVA.</strong>
+           Tácticas de Cracks.
+        </h1>
+
+        <!-- Nombre del ponente -->
+        <div class="hero-ponente">
+          <div class="ponente-sep"></div>
+          <!-- 👇 Cambia el nombre y cargo del ponente -->
+          Motivación y Liderazgo
+        </div>
+
+        <!-- Descripción corta -->
+        <p class="hero-desc">
+          <!-- 👇 Cambia la descripción del evento -->
+          Conferencia con motivo del Día del Estudiante.
+        </p>
+
+        <!-- Botones CTA -->
+        <div class="hero-btns">
+          <a href="#" onclick="abrirModal('modal-registro');return false;" class="btn btn-primario">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            Asegurar mi lugar
+          </a>
+          <a href="#" onclick="abrirModal('modal-programa');return false;" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Ver programa
+          </a>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA — Tarjeta de detalles -->
+      <div class="hero-right">
+        <div class="evento-card">
+          <div class="card-titulo">Detalles del Evento</div>
+
+          <!-- Fecha -->
+          <div class="card-dato">
+            <div class="dato-icono">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div class="dato-info">
+              <div class="dato-label">Fecha</div>
+              <!-- 👇 Cambia la fecha -->
+              <div class="dato-valor">Martes, 12 de mayo de 2026</div>
+            </div>
+          </div>
+
+          <!-- Hora -->
+          <div class="card-dato">
+            <div class="dato-icono">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="dato-info">
+              <div class="dato-label">Horario</div>
+              <!-- 👇 Cambia el horario -->
+              <div class="dato-valor">10:00 AM – 1:00 PM (MX)</div>
+            </div>
+          </div>
+
+          <!-- Lugar -->
+          <div class="card-dato">
+            <div class="dato-icono">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="dato-info">
+              <div class="dato-label">Lugar</div>
+              <!-- 👇 Cambia el lugar -->
+              <div class="dato-valor">Teatro Ramón López Velarde<br/>Zacatecas, Zac.</div>
+            </div>
+          </div>
+
+          <!-- Modalidad -->
+          <div class="card-dato">
+            <div class="dato-icono">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/>
+              </svg>
+            </div>
+            <div class="dato-info">
+              <div class="dato-label">Modalidad</div>
+              <!-- 👇 Cambia la modalidad -->
+              <div class="dato-valor">Presencial + CUPO LIMITADO</div>
+            </div>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <!-- Cupos -->
+          <div>
+            <div class="dato-label">CUPO LIMITADO</div>
+            <div class="cupos-bar">
+              <div class="cupos-texto">
+                <!-- 👇 Cambia el texto de cupos -->
+                <span>Habrá cupo limitado a través de invitación</span>
+                <span>Atento a la plataforma de registro</span>
+              </div>
+              <div class="cupos-track">
+                <div class="cupos-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGOS PATROCINADORES -->
+    <div class="hero-logos-wrap">
+      <p class="logos-label">Con el respaldo de</p>
+      <div class="logos-fila">
+
+        <!-- Logo 1 — reemplaza el SVG con <img src="logo.png"> si tienes el archivo -->
+        <div class="logo-item">
+          <div class="logo-caja">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="12" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="16" cy="16" r="6" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1"/>
+              <circle cx="16" cy="16" r="2.5" fill="#c9a84c"/>
+            </svg>
+          </div>
+          <span class="logo-nombre">Institución A</span>
+        </div>
+
+        <!-- Logo 2 -->
+        <div class="logo-item">
+          <div class="logo-caja">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="5" y="5" width="22" height="22" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.08)"/>
+              <path d="M10 16h12M16 10v12" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="logo-nombre">Institución B</span>
+        </div>
+
+        <!-- Logo 3 -->
+        <div class="logo-item">
+          <div class="logo-caja">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <polygon points="16,3 29,10 29,22 16,29 3,22 3,10" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.08)"/>
+              <polygon points="16,9 23,13 23,19 16,23 9,19 9,13" fill="rgba(201,168,76,0.15)" stroke="none"/>
+            </svg>
+          </div>
+          <span class="logo-nombre">Patrocinador</span>
+        </div>
+
+        <!-- Logo 4 — ejemplo con imagen real (descomenta y reemplaza src) -->
+        <!--
+        <div class="logo-item">
+          <div class="logo-caja">
+            <img src="tu-logo.png" alt="Nombre institución" />
+          </div>
+          <span class="logo-nombre">Tu Logo</span>
+        </div>
+        -->
+
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-linea"></div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MODALS
+  ═══════════════════════════════════════════════════════ -->
+
+  <!-- ── MODAL: PONENTE ── -->
+  <div class="modal-backdrop" id="modal-ponente" role="dialog" aria-modal="true" aria-labelledby="titulo-ponente">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div>
+            <div class="modal-label">Conferenciante</div>
+            <div class="modal-titulo" id="titulo-ponente">Ponente</div>
+          </div>
+        </div>
+        <button class="modal-cerrar" onclick="cerrarModal('modal-ponente')" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="ponente-perfil">
+          <!-- 👇 Reemplaza el SVG por <img src="foto.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+          <div class="ponente-avatar">OT</div>
+          <div class="ponente-meta">
+            <!-- 👇 Edita nombre y cargo -->
+            <div class="ponente-nombre">OSO TRAVA</div>
+            <div class="ponente-cargo">EMPRENDEDOR E INVERSIONISTA · MÉXICO</div>
+            <div class="ponente-tags">
+              <span class="tag">FORBES</span>
+              <span class="tag">EXPANSIÓN</span>
+              <span class="tag">ENDEAVOR</span>
+              <span class="tag">EY Entrepreneur Of The Year</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-divider"></div>
+        <!-- 👇 Edita la biografía del ponente -->
+        <p class="modal-texto">
+          Emprendedor experimentado, apasionado por las nuevas tecnologías, los modelos de negocio innovadores y el impacto escalable. Ingeniero con MBA de Stanford, cuenta con una sólida trayectoria en análisis financiero, desarrollo comercial, capital de riesgo, startups y mercados financieros.
+        </p>
+        <p class="modal-texto">
+          Es el creador de Cracks Podcast, un fenómeno que supera los 20 millones de descargas. Además, es fundador de Cracks Educación y DUMO Labs, y asesor de varios negocios multimillonarios.
+
+        Como inversionista en tecnologías disruptivas a través de Cracks Fund, actualmente forma parte del panel de inversionistas —"Shark"— en la nueva temporada del programa Shark Tank México.
+        </p>
+        <div class="modal-divider"></div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <div>
+            <div class="sede-dato-label">Institución</div>
+            <div class="sede-dato-valor" style="font-size:0.85rem; color:var(--texto-suave);">osotrava.com</div>
+          </div>
+          <div>
+            <div class="sede-dato-label">País</div>
+            <div class="sede-dato-valor" style="font-size:0.85rem; color:var(--texto-suave);">México</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: PROGRAMA ── -->
+  <div class="modal-backdrop" id="modal-programa" role="dialog" aria-modal="true" aria-labelledby="titulo-programa">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div>
+            <div class="modal-label">Agenda del día</div>
+            <div class="modal-titulo" id="titulo-programa">Programa</div>
+          </div>
+        </div>
+        <button class="modal-cerrar" onclick="cerrarModal('modal-programa')" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- 👇 Edita cada bloque del programa -->
+        <div class="programa-item">
+          <div class="prog-hora">9:30 AM</div>
+          <div class="prog-info">
+            <div class="prog-titulo">Registro y bienvenida</div>
+            <div class="prog-desc">Acreditación de asistentes, café de bienvenida y networking previo al inicio.</div>
+            <span class="prog-badge">Presencial</span>
+          </div>
+        </div>
+        <div class="programa-item">
+          <div class="prog-hora">10:00 AM</div>
+          <div class="prog-info">
+            <div class="prog-titulo">Palabras de apertura</div>
+            <div class="prog-desc">Mensaje institucional por parte de las autoridades organizadoras del evento.</div>
+            <span class="prog-badge">Presencial + En vivo</span>
+          </div>
+        </div>
+        <div class="programa-item">
+          <div class="prog-hora">10:20 AM</div>
+          <div class="prog-info">
+            <div class="prog-titulo">Conferencia magistral</div>
+            <div class="prog-desc">«Liderazgo y Transformación Social» — presentación central a cargo del Dr. Nombre Apellido, con espacio para reflexión y análisis.</div>
+            <span class="prog-badge">Principal</span>
+          </div>
+        </div>
+        <div class="programa-item">
+          <div class="prog-hora">11:50 AM</div>
+          <div class="prog-info">
+            <div class="prog-titulo">Mesa de preguntas y respuestas</div>
+            <div class="prog-desc">Sesión abierta de preguntas del público tanto presencial como en línea.</div>
+            <span class="prog-badge">Interactivo</span>
+          </div>
+        </div>
+        <div class="programa-item">
+          <div class="prog-hora">12:30 PM</div>
+          <div class="prog-info">
+            <div class="prog-titulo">Clausura y entrega de constancias</div>
+            <div class="prog-desc">Palabras de cierre, reconocimientos y fotografía oficial. Constancias digitales enviadas por correo.</div>
+            <span class="prog-badge">Presencial</span>
+          </div>
+        </div>
+        <div class="programa-item">
+          <div class="prog-hora">1:00 PM</div>
+          <div class="prog-info">
+            <div class="prog-titulo">Convivio y networking</div>
+            <div class="prog-desc">Espacio informal de intercambio entre asistentes, ponente y organizadores.</div>
+            <span class="prog-badge">Opcional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: SEDE ── -->
+  <div class="modal-backdrop" id="modal-sede" role="dialog" aria-modal="true" aria-labelledby="titulo-sede">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div>
+            <div class="modal-label">Dónde nos encontramos</div>
+            <div class="modal-titulo" id="titulo-sede">Sede</div>
+          </div>
+        </div>
+        <button class="modal-cerrar" onclick="cerrarModal('modal-sede')" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- 👇 Reemplaza .sede-mapa por un <iframe> de Google Maps si tienes la URL -->
+        <div class="sede-mapa">
+          <div class="sede-mapa-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p>Inserta aquí tu mapa de Google Maps<br/><span style="font-size:0.65rem; opacity:0.5;">Reemplaza .sede-mapa con un iframe</span></p>
+          </div>
+        </div>
+
+        <div class="sede-dato">
+          <div class="sede-dato-icono">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="sede-dato-texto">
+            <div class="sede-dato-label">Recinto</div>
+            <!-- 👇 Cambia el nombre del lugar -->
+            <div class="sede-dato-valor">Teatro Fernando Calderón</div>
+          </div>
+        </div>
+
+        <div class="sede-dato">
+          <div class="sede-dato-icono">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="sede-dato-texto">
+            <div class="sede-dato-label">Dirección</div>
+            <!-- 👇 Cambia la dirección -->
+            <div class="sede-dato-valor">Av. Hidalgo 630, Centro Histórico<br/>Zacatecas, Zac. C.P. 98000</div>
+          </div>
+        </div>
+
+        <div class="sede-dato">
+          <div class="sede-dato-icono">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="sede-dato-texto">
+            <div class="sede-dato-label">Acceso recomendado</div>
+            <div class="sede-dato-valor">Entrada principal por Av. Hidalgo.<br/>Estacionamiento público disponible a 200m.</div>
+          </div>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline" style="display:inline-flex; font-size:0.78rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ver en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: ORGANIZADORES ── -->
+  <div class="modal-backdrop" id="modal-organizadores" role="dialog" aria-modal="true" aria-labelledby="titulo-org">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div>
+            <div class="modal-label">Quiénes hacen posible este evento</div>
+            <div class="modal-titulo" id="titulo-org">Organizadores</div>
+          </div>
+        </div>
+        <button class="modal-cerrar" onclick="cerrarModal('modal-organizadores')" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- 👇 Edita el nombre, rol y logo de cada organizador -->
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-logo">
+              <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><circle cx="14" cy="10" r="8" stroke="#c9a84c" stroke-width="1.2"/><circle cx="14" cy="10" r="4" fill="rgba(201,168,76,0.2)"/></svg>
+            </div>
+            <div class="org-nombre">Institución Organizadora A</div>
+            <div class="org-rol">Organizador principal</div>
+          </div>
+          <div class="org-card">
+            <div class="org-logo">
+              <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><rect x="4" y="3" width="20" height="14" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.08)"/></svg>
+            </div>
+            <div class="org-nombre">Institución Coanfitrión B</div>
+            <div class="org-rol">Coanfitrión</div>
+          </div>
+          <div class="org-card">
+            <div class="org-logo">
+              <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><polygon points="14,2 26,8 26,14 14,18 2,14 2,8" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.06)"/></svg>
+            </div>
+            <div class="org-nombre">Patrocinador Estratégico C</div>
+            <div class="org-rol">Patrocinador oro</div>
+          </div>
+          <div class="org-card">
+            <div class="org-logo">
+              <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M4 10 Q14 2 24 10 Q14 18 4 10Z" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.06)"/></svg>
+            </div>
+            <div class="org-nombre">Aliado Institucional D</div>
+            <div class="org-rol">Aliado institucional</div>
+          </div>
+        </div>
+        <div class="modal-divider"></div>
+        <p class="modal-texto" style="font-size:0.82rem;">
+          ¿Tu organización desea sumarse como patrocinadora? Escríbenos a <span style="color:var(--acento);">contacto@evento.mx</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: REGISTRO ── -->
+  <div class="modal-backdrop" id="modal-registro" role="dialog" aria-modal="true" aria-labelledby="titulo-registro">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div>
+            <div class="modal-label">Asegura tu lugar</div>
+            <div class="modal-titulo" id="titulo-registro">Registro</div>
+          </div>
+        </div>
+        <button class="modal-cerrar" onclick="cerrarModal('modal-registro')" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="form-registro">
+          <div class="form-grid">
+            <div class="form-grupo">
+              <label class="form-label">Nombre(s)</label>
+              <input type="text" class="form-input" placeholder="Tu nombre" />
+            </div>
+            <div class="form-grupo">
+              <label class="form-label">Apellidos</label>
+              <input type="text" class="form-input" placeholder="Tus apellidos" />
+            </div>
+          </div>
+          <div class="form-grupo">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="form-input" placeholder="correo@ejemplo.com" />
+          </div>
+          <div class="form-grupo">
+            <label class="form-label">Teléfono (opcional)</label>
+            <input type="tel" class="form-input" placeholder="+52 000 000 0000" />
+          </div>
+          <div class="form-grupo">
+            <label class="form-label">Institución u organización</label>
+            <input type="text" class="form-input" placeholder="Nombre de tu institución" />
+          </div>
+          <div class="form-grupo">
+            <label class="form-label">Modalidad de asistencia</label>
+            <select class="form-select">
+              <option value="">Selecciona una opción</option>
+              <option>Presencial</option>
+              <option>En línea (transmisión en vivo)</option>
+            </select>
+          </div>
+          <div class="form-grupo">
+            <label class="form-label">¿Tienes alguna pregunta para el ponente? (opcional)</label>
+            <textarea class="form-textarea" placeholder="Escribe tu pregunta..."></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="aviso" />
+            <label for="aviso">Acepto el aviso de privacidad y el uso de mis datos para la gestión de este evento.</label>
+          </div>
+          <button class="btn btn-primario btn-modal-enviar" onclick="enviarRegistro()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Completar registro
+          </button>
+        </div>
+        <!-- Estado de éxito (oculto por defecto) -->
+        <div id="registro-ok" style="display:none; text-align:center; padding: 2rem 0;">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 1rem;">
+            <circle cx="26" cy="26" r="24" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.08)"/>
+            <path d="M15 26l8 8 14-14" stroke="#c9a84c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="font-family:var(--fuente-titulo); font-size:1.6rem; color:var(--texto-blanco); margin-bottom:0.5rem;">¡Registro completado!</div>
+          <p style="font-size:0.88rem; color:var(--texto-suave); line-height:1.6;">Recibirás un correo de confirmación con los detalles del evento. ¡Nos vemos pronto!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    /* ─── Navbar scroll ─── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ─── Hamburger ─── */
+    const ham      = document.getElementById('ham');
+    const navMovil = document.getElementById('nav-movil');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('abierto');
+      navMovil.classList.toggle('abierto');
+    });
+    function cerrarMovil() {
+      ham.classList.remove('abierto');
+      navMovil.classList.remove('abierto');
+    }
+
+    /* ─── Modals ─── */
+    function abrirModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.add('activo');
+      document.body.style.overflow = 'hidden';
+    }
+    function cerrarModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.remove('activo');
+      document.body.style.overflow = '';
+    }
+    // Cerrar al hacer clic en el backdrop
+    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+      backdrop.addEventListener('click', function(e) {
+        if (e.target === this) cerrarModal(this.id);
+      });
+    });
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-backdrop.activo').forEach(m => {
+          cerrarModal(m.id);
+        });
+      }
+    });
+
+    /* ─── Envío del formulario (simulado) ─── */
+    function enviarRegistro() {
+      const aviso = document.getElementById('aviso');
+      if (!aviso.checked) {
+        aviso.closest('.form-check').style.outline = '1px solid var(--acento)';
+        return;
+      }
+      document.getElementById('form-registro').style.display = 'none';
+      document.getElementById('registro-ok').style.display  = 'block';
+    }
+  </script>
+
+</body>
+</html>

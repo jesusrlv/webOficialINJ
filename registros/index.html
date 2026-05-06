@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Día de la Familia</title>
+    <!-- Incluir SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    /* Estilos para los botones */
+    .swal2-confirm,
+    .swal2-cancel {
+        margin: 0 10px; /* Separación horizontal entre botones */
+        padding: 10px 20px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        font-size: 16px; /* Tamaño de fuente */
+        cursor: pointer; /* Cambiar cursor al pasar sobre los botones */
+    }
+
+    /* Estilo específico para el botón de confirmación */
+    .swal2-confirm {
+        background-color: #007bff; /* Color de fondo */
+        color: white; /* Color del texto */
+        border: none; /* Sin borde */
+    }
+
+    /* Estilo específico para el botón de cancelación */
+    .swal2-cancel {
+        background-color: #dc3545; /* Color de fondo */
+        color: white; /* Color del texto */
+        border: none; /* Sin borde */
+    }
+</style>
+<body>
+    <h1>INJUVENTUD</h1>
+    <p>Selecciona tu edad.</p>
+
+    <!-- Script para mostrar el modal de SweetAlert2 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+                title: "¡Elige la edad!",
+                text: "Selecciona la edad que tienes:",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "12 - 29 años",
+                cancelButtonText: "30 o más años...",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirigir a Página A
+                    window.location.href = "https://forms.gle/9KGz3aiyk3P9Qquk7";
+                } else if (result.isDismissed && result.dismiss === "cancel") {
+                    // Redirigir a Página B
+                    window.location.href = "https://forms.gle/3pRabjBk8cYeuq3n9";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
